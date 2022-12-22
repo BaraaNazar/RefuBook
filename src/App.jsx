@@ -5,6 +5,7 @@ import './App.css';
 import NavBar from './Components/home/navbar';
 import Home from './Containers/Home';
 // import { Switch, Route } from "react-router-dom";
+import LatestStories from './Components/home/stories/index';
 
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/Home" element={<Home />} />
         </Routes>
-            
+      <LatestStories/>   
     </div>
   );
 }
