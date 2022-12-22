@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .latest-story-container {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
   @apply p-12 xl:p-20 bg-refubook-blue;
