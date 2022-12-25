@@ -1,17 +1,27 @@
 import React from "react";
-import Carousel from "react-elastic-carousel"
+import Carousel, {consts} from "react-elastic-carousel"
 import testimonialImg from "../../../testimonal-img.png"
+import "./style.css"
 
 function Testimonial(){
     return (
-        <div className="flex justify-between items-center w-screen m-10">
+        <div className="flex flex-col md:flex-row md:justify-evenly items-center w-full space-y-4 text-center dark:bg-gray-900 dark:text-white">
             <div>
-                <img src={testimonialImg}  alt="testimonialImg"/>
+                <img src={testimonialImg} className="w-fit p-4"  alt="testimonialImg"/>
             </div>
-            <div className="flex w-1/2">
-            <Carousel showArrows={false} enableAutoPlay className="flex justify-center">
-            <div className="flex flex-col space-y-2 justify-center items-left text-left">
-                <p className="w-1/2">Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
+            <div className="w-96">
+            <Carousel showArrows={false} itemPosition={consts.END} itemsToShow={1}>
+            <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
+                <p>Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
+                <div>
+                    
+                    <h3 title="Header" className="text-gray-500">Louis Li,</h3>
+                    <h3 className="text-gray-500">Trainer at Recoded</h3>
+                    
+                </div>
+            </div>
+            <div className="flex flex-col justify-self-end space-y-4 text-center">
+                <p>Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
                 <div>
                     
                     <h3 className="text-gray-500">Louis Li,</h3>
@@ -19,8 +29,8 @@ function Testimonial(){
                     
                 </div>
             </div>
-            <div className="flex flex-col space-y-2 justify-center items-left text-left">
-                <p className="w-1/2">Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
+            <div className="flex flex-col justify-self-end space-y-4 text-center">
+                <p>Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
                 <div>
                     
                     <h3 className="text-gray-500">Louis Li,</h3>
@@ -28,8 +38,8 @@ function Testimonial(){
                     
                 </div>
             </div>
-            <div className="flex flex-col space-y-2 justify-center items-left text-left">
-                <p className="w-1/2">Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
+            <div className="flex flex-col justify-self-end space-y-4 text-center">
+                <p>Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
                 <div>
                     
                     <h3 className="text-gray-500">Louis Li,</h3>
@@ -37,17 +47,8 @@ function Testimonial(){
                     
                 </div>
             </div>
-            <div className="flex flex-col space-y-2 justify-center items-left text-left">
-                <p className="w-1/2">Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
-                <div>
-                    
-                    <h3 className="text-gray-500">Louis Li,</h3>
-                    <h3 className="text-gray-500">Trainer at Recoded</h3>
-                    
-                </div>
-            </div>
-            <div className="flex flex-col space-y-2">
-                <p className="w-1/2">Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
+            <div className="flex flex-col justify-self-end space-y-4 text-center">
+                <p>Two lines of a short testimonial from someone want to say something, and can say more to explain.</p>
                 <div>
                     
                     <h3 className="text-gray-500">Louis Li,</h3>

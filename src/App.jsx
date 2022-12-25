@@ -8,15 +8,12 @@ import Home from './Containers/Home';
 
 
 function App() {
-  // const [page,setPage]= useState("/")
   return (
     <div>
-      {/* <NavBar onChangePage={setPage}/> */}
       <NavBar/>
         <Routes>
           <Route path="/Home" element={<Home />} />
         </Routes>
-            
     </div>
   );
 }
