@@ -1,11 +1,15 @@
-import React from "react";
-import Testimonial from "../Components/home/testimonials";
+import React from 'react';
+import Testimonial from '../Components/home/testimonials';
+import About from '../Components/home/about';
+import Features from '../Components/home/features';
 
-function Home(){
-    return(
+function Home() {
+    return (
         <div>
-            <Testimonial/>
+            <Testimonial />
+            <About />
+            <Features />
         </div>
-    )
+    );
 }
 export default Home;
