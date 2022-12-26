@@ -54,7 +54,7 @@ const LatestStories = () => {
   }, []);
 
   return (
-    <div className="latest-story-container">
+    <div className="latest-story-container" data-testid="latest-story-container">
       <div className="latest-story-top">
         <h2 className="title">Latest Stories</h2>
 
