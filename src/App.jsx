@@ -9,7 +9,6 @@ import LatestStories from './Components/home/stories/index';
 
 
 function App() {
-  // const [page,setPage]= useState("/")
   return (
     <div>
       {/* <NavBar onChangePage={setPage}/> */}
