@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.latest-story-container {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  @apply p-12 xl:p-20 bg-refubook-blue;
+}
+
+.latest-story-top {
+  @apply w-full xl:w-1/3 text-white mb-10 xl:mb-20 text-center xl:text-left;
+}
+
+.latest-story-top .title {
+  @apply font-normal text-base leading-[19px] tracking-[-0.3px] xl:text-5.5xl xl:leading-12 xl:tracking-[-1px] mb-5;
+}
+
+.latest-story-top .description {
+  @apply font-normal text-xs leading-[18px] tracking-[-0.5px] xl:text-base xl:leading-[30px] xl:tracking-[-0.75px];
+}
+
+.latest-story-bottom {
+  @apply grid gap-16 xl:gap-20;
+}
+
+.latest-story-bottom .story-container {
+  @apply grid xl:grid-cols-2 items-center gap-5 xl:gap-28;
+}
+
+.story-container img {
+  @apply w-full;
+}
+
+.right-side .story-title-container {
+  @apply mb-5 bg-custom-light-yellow rounded-[3px] w-20 h-5 flex justify-center items-center text-refubook-blue;
+}
+
+.story-title-container h5 {
+  @apply font-bold text-xs leading-4 tracking-wide;
+}
+
+.right-side h3 {
+  @apply font-light text-lg leading-6 tracking-[-0.3] xl:text-4xl xl:leading-11 xl:tracking-[-0.1px] xl:w-5/6 text-white;
+}
+
+.right-side .story-author-container {
+  @apply mt-10 flex items-center;
+}
+
+.story-author-container .author-profile {
+  @apply w-9 h-9 rounded-5xl bg-custom-light-yellow mr-5;
+}
+
+.story-author-container .author {
+  @apply space-y-2;
+}
+
+.story-author-container .author h4 {
+  @apply text-white font-bold text-sm leading-4 tracking-[-0.32px];
+}
+
+.story-author-container .author p {
+  @apply text-[#E9E9E9] font-light text-xs leading-[14px] tracking-[-0.27px];
+}
