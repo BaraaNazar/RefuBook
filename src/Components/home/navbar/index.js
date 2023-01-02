@@ -69,7 +69,7 @@ function NavBar() {
               </li>
               <li>
                 <NavLink
-                  href="/"
+                  to="/"
                   className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   Contact
@@ -109,7 +109,7 @@ function NavBar() {
             </li>
             <li>
               <NavLink
-                to="/blog"
+                to="/"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Blog
@@ -117,20 +117,19 @@ function NavBar() {
             </li>
             <li>
               <NavLink
-                href="/contact"
+                to="/"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contact
               </NavLink>
             </li>
             <li>
-              <button
-                type="button"
-                className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
-                href="/signUp"
-              >
-                Sign Up
-              </button>
+            <NavLink
+                  to="/signup"
+                  className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
+                >
+                  Sign Up
+                </NavLink>
             </li>
           </ul>
         </div>
