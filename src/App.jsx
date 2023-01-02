@@ -5,6 +5,7 @@ import './App.css';
 import NavBar from './Components/home/navbar';
 import Home from './Containers/Home';
 // import { Switch, Route } from "react-router-dom";
+import Footer from './Components/home/footer';
 
 
 function App() {
@@ -15,7 +16,8 @@ function App() {
         <Routes>
           <Route path="/Home" element={<Home />} />
         </Routes>
-      <Home />
+     
+      <Footer/>
     </div>
   );
 }
