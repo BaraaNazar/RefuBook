@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Features from './index';
+import Features from '.';
 
 test('should render All Features inside Features component', () => {
   render(<Features />);

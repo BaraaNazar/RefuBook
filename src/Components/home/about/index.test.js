@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import About from './index';
+import About from './index'
 
 test('should render About inside About container', () => {
   render(<About />);
