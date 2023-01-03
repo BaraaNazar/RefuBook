@@ -2,7 +2,6 @@ import { useState, useLayoutEffect } from 'react';
 import './style.css';
 import EmptyImage from './assets/EmptyImages.svg';
 
-
 const LATEST_STORIES = [
   {
     id: 1,
@@ -54,7 +53,10 @@ const LatestStories = () => {
   }, []);
 
   return (
-    <div className="latest-story-container" data-testid="latest-story-container">
+    <div
+      className="latest-story-container"
+      data-testid="latest-story-container"
+    >
       <div className="latest-story-top">
         <h2 className="title">Latest Stories</h2>
 
