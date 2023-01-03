@@ -1,4 +1,4 @@
-import {Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 import NavBar from '../home/navbar';
 
@@ -13,7 +13,10 @@ const index = () => {
         <div className="relative z-10">
           <NavBar />
 
-          <div data-testid="signup-main-container" className="p-10 h-[40vh] xl:w-2/5 transform translate-y-6 xl:translate-y-10 m-auto bg-white shadow-custom-xl rounded-6xl flex flex-col items-center justify-between xl:justify-around">
+          <div
+            data-testid="signup-main-container"
+            className="p-10 h-[40vh] xl:w-2/5 transform translate-y-6 xl:translate-y-10 m-auto bg-white shadow-custom-xl rounded-6xl flex flex-col items-center justify-between xl:justify-around"
+          >
             <h3 className="text-xl xl:text-2xl text-refubook-blue font-bold leading-[20px] xl:leading-[28px]">
               SIGN UP WITH
             </h3>
@@ -38,26 +41,30 @@ const index = () => {
               </button>
             </div>
 
-            <h5 title="AlreadyMember" className="text-[#70CDD6] hidden xl:block">
+            <h5
+              title="AlreadyMember"
+              className="text-[#70CDD6] hidden xl:block"
+            >
               Already a Member?{' '}
-              <Link to ='/login'><button
-                className="text-[#70CDD6] font-bold"
-                type="button"
-              >
-                Sign in
-              </button></Link>
+              <Link to="/login">
+                <button className="text-[#70CDD6] font-bold" type="button">
+                  Sign in
+                </button>
+              </Link>
             </h5>
           </div>
         </div>
 
         <div className="xl:hidden w-full absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center">
           <h5 className="text-[#70CDD6] text-xl">Already a Member? </h5>
-          <Link to ='/login'><button
-            className="mt-2 text-white bg-refubook-blue px-6 py-0.5 rounded-xl font-bold"
-            type="button"
-          >
-            Sign in
-          </button></Link>
+          <Link to="/login">
+            <button
+              className="mt-2 text-white bg-refubook-blue px-6 py-0.5 rounded-xl font-bold"
+              type="button"
+            >
+              Sign in
+            </button>
+          </Link>
         </div>
       </div>
     </div>
