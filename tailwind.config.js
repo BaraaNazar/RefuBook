@@ -28,9 +28,6 @@ module.exports = {
         '5xl': '40px',
         '6xl': '50px',
       },
-      boxShadow: {
-        'custom-xl': '10px 10px 40px rgba(0, 0, 0, 0.25);',
-      },
     },
   },
   plugins: ['flowbite/plugin'],

@@ -5,6 +5,7 @@ import Home from './Containers/Home';
 import Login from './Containers/LogIn';
 import Layout from './Containers/Layout';
 import SignUp from './Containers/SignUp';
+import Contact from './Containers/ContactPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           </Route>
+        <Route path="/Contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
