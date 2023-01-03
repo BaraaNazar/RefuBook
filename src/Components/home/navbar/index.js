@@ -124,12 +124,12 @@ function NavBar() {
               </NavLink>
             </li>
             <li>
-            <NavLink
-                  to="/signup"
-                  className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
-                >
-                  Sign Up
-                </NavLink>
+              <NavLink
+                to="/signup"
+                className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
+              >
+                Sign Up
+              </NavLink>
             </li>
           </ul>
         </div>

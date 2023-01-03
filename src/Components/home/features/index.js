@@ -63,7 +63,9 @@ function MobileComponent() {
                   <MdStars className="text-5xl text-gray-500" />
                   <h1 className="text-gray-500">{feature.title}</h1>
                 </header>
-                <p className=" text-center mx-auto w-[50%]">{feature.description}</p>
+                <p className=" text-center mx-auto w-[50%]">
+                  {feature.description}
+                </p>
               </div>
             );
           })}
