@@ -5,6 +5,7 @@ import Team from '../Components/About/team';
 import CallToAction from '../Components/About/call-to-action';
 import Footer from '../Components/home/footer';
 
+
 function About() {
   return (
     <div>
@@ -12,7 +13,8 @@ function About() {
       <Story />
       <Team />
       <CallToAction />
-      <Footer />
+      <Footer/>
+
     </div>
   );
 }
