@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
-import NavBar from '../home/navbar';
+import NavBar from '../../Containers/Navbar';
 
 const index = () => {
   return (

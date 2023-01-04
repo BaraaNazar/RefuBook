@@ -1,6 +1,6 @@
 import React from 'react';
 import Carousel, { consts } from 'react-elastic-carousel';
-import testimonialImg from '../../../testimonal-img.png';
+import testimonialImg from '../../../images/testimonal-img.png';
 import './style.css';
 
 function Testimonial() {
