@@ -6,10 +6,13 @@ import Login from './Containers/LogIn';
 import Layout from './Containers/Layout';
 import SignUp from './Containers/SignUp';
 import Contact from './Containers/ContactPage';
+import About from './Containers/About'
+
 
 function App() {
   return (
     <div>
+
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
@@ -17,9 +20,14 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        
+        <Route path="/about" element={<Layout />} >
+        <Route index element={<About />} />
+        </Route>
       </Routes>
 
       <Outlet />
+
     </div>
   );
 }

@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
-import NavBar from '../home/navbar';
+import NavBar from '../../Containers/Navbar';
 
 const index = () => {
   return (
-    <div className="h-screen w-full bg-refubg-blue flex items-center justify-center">
+    <div className="h-screen w-full bg-refubook-blue flex items-center justify-center">
       <div className="h-[90vh] xl:h-[80vh] w-11/12 xl:w-4/5 py-6 px-4 bg-white rounded-6xl shadow-custom-xl relative overflow-hidden">
         <div className="hidden xl:block absolute -left-48 -top-4 z-0 w-[800px] h-[650px] rounded-[1009px] bg-[#E5FAFF]" />
 

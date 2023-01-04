@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Logo from '../../../RefuBook-Logo.png';
+import Logo from '../images/RefuBook-Logo.png';
 
-function NavBar() {
+function Navbar() {
   const [navbar, setNavbar] = useState(false);
   return (
     <nav className="text-refubook-blue px-2 sm:px-4 py-2.5 rounded m-3">
@@ -53,7 +53,7 @@ function NavBar() {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/about"
                   className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   About
@@ -139,4 +139,4 @@ function NavBar() {
     </nav>
   );
 }
-export default NavBar;
+export default Navbar;

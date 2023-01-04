@@ -3,14 +3,19 @@ import Testimonial from '../Components/home/testimonials';
 import About from '../Components/home/about';
 import Features from '../Components/home/features';
 import LatestStories from '../Components/home/stories';
+import HomeBody from '../Components/home/home';
+import Footer from '../Components/home/footer';
+
 
 function Home() {
   return (
     <div>
-      <Testimonial />
+      <HomeBody/>
       <About />
       <Features />
+      <Testimonial />
       <LatestStories />
+      <Footer/>
     </div>
   );
 }
