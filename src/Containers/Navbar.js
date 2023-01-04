@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import Logo from '../../../RefuBook-Logo.png';
+import Logo from '../images/RefuBook-Logo.png';
 
-function NavBar() {
+function Navbar() {
   const [navbar, setNavbar] = useState(false);
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 m-3">
+    <nav className="border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 m-3">
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex justify-between">
           <NavLink to="/home" className="flex items-center">
@@ -141,4 +141,4 @@ function NavBar() {
     </nav>
   );
 }
-export default NavBar;
+export default Navbar;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Carousel } from 'flowbite-react';
 import { MdStars } from 'react-icons/md';
-import logo from '../../../img1.png';
+import logo from '../../../images/img1.png';
 
 const FEATURES = [
   {
