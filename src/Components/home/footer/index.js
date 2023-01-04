@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import Logo from '../../../RefuBook-Logo.png';
+import Logo from '../../../images/RefuBook-Logo.png';
 
 function Footer() {
   return (
