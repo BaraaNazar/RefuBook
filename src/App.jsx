@@ -27,7 +27,6 @@ function App() {
         <Route index element={<About />} />
         </Route>
       </Routes>
-      <Footer/>
 
       <Outlet />
 
