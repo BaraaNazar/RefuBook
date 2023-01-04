@@ -8,12 +8,11 @@ import Footer from '../Components/home/footer';
 function About() {
   return (
     <div>
-
       <HeroImage />
       <Story />
       <Team />
       <CallToAction />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

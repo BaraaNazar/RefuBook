@@ -6,16 +6,15 @@ import LatestStories from '../Components/home/stories';
 import HomeBody from '../Components/home/home';
 import Footer from '../Components/home/footer';
 
-
 function Home() {
   return (
     <div>
-      <HomeBody/>
+      <HomeBody />
       <About />
       <Features />
       <Testimonial />
       <LatestStories />
-      <Footer/>
+      <Footer />
     </div>
   );
 }

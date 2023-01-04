@@ -17,7 +17,7 @@ function Footer() {
         <ul className="flex justify-center">
           <li className="mr-6">
             <NavLink
-              to="/home"
+              to="/"
               className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-white rounded md:bg-transparent text-gray-700 md:p-0 dark:text-white md:hover:text-blue-700"
               aria-current="page"
             >
@@ -60,7 +60,7 @@ function Footer() {
                   <button
                     type="button"
                     className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-6  rounded-full "
-                    href="/signUp"
+                    href="/signup"
                   >
                     Sign up
                   </button>
