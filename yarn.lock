@@ -5053,7 +5053,7 @@ flatted@^3.1.0:
 
 flowbite-react@^0.3.7:
   version "0.3.7"
-  resolved "https://registry.npmjs.org/flowbite-react/-/flowbite-react-0.3.7.tgz"
+  resolved "https://registry.yarnpkg.com/flowbite-react/-/flowbite-react-0.3.7.tgz#14875099875a654f32dd63137cf0371c28399b87"
   integrity sha512-vnDlbuJubo66O5U4Fj9pkAhsaO+uWjR4qShlbIK+6qS+VbfZX5xaDNKHg98WkEhfyXsL8/03eSQZcuE073SvwA==
   dependencies:
     "@floating-ui/react-dom" "^1.0.0"
@@ -5065,7 +5065,7 @@ flowbite-react@^0.3.7:
 
 flowbite@^1.5.5:
   version "1.5.5"
-  resolved "https://registry.npmjs.org/flowbite/-/flowbite-1.5.5.tgz"
+  resolved "https://registry.yarnpkg.com/flowbite/-/flowbite-1.5.5.tgz#0adb062e1c5b31dfd1e71bd1acfcda6cbc69e728"
   integrity sha512-LWJteH6zO+6BrnerH6GEU9OFpjWmkCWi9BD3XnJdBOVevNnt7u8gW+S+4keqD5OGpHu+QU860pLzNKeNlhlf6g==
   dependencies:
     "@popperjs/core" "^2.9.3"

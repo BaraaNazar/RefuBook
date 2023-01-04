@@ -7,9 +7,9 @@ import LatestStories from '../Components/home/stories';
 function Home() {
   return (
     <div>
-      <Testimonial />
       <About />
       <Features />
+      <Testimonial />
       <LatestStories />
     </div>
   );
