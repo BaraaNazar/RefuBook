@@ -2,11 +2,13 @@ import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import './App.css';
 import Home from './Containers/Home';
+import Footer from './Components/home/footer';
 import Login from './Containers/LogIn';
 import Layout from './Containers/Layout';
 import SignUp from './Containers/SignUp';
 import Contact from './Containers/ContactPage';
 import About from './Containers/About'
+
 
 
 function App() {
@@ -25,6 +27,7 @@ function App() {
         <Route index element={<About />} />
         </Route>
       </Routes>
+      <Footer/>
 
       <Outlet />
 
