@@ -14,6 +14,7 @@ module.exports = {
         '5.5xl': '54px',
       },
       colors: {
+        'refubook-bg': '#6EC9D2',
         'refubook-blue': '#4699C2',
         'custom-black': '#3F3B3B',
         'custom-gray': '#637381',
