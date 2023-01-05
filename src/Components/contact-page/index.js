@@ -1,6 +1,6 @@
 import { ImFacebook, ImTwitter } from 'react-icons/im';
 import { FaInstagram } from 'react-icons/fa';
-import NavBar from '../../Containers/Navbar'
+import NavBar from '../../Containers/Navbar';
 import contactImage from '../../images/Contact.png';
 
 function Contacts() {
