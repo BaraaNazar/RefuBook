@@ -8,7 +8,6 @@ import SignUp from './Containers/SignUp';
 import Contact from './Containers/ContactPage';
 import About from './Containers/About';
 
-
 function App() {
   return (
     <div>
