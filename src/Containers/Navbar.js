@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="text-refubook-blue px-2 sm:px-4 py-2.5 rounded m-3">
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex justify-between">
-          <NavLink to="/home" className="flex items-center">
+          <NavLink to="/" className="flex items-center">
             <img src={Logo} className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap">
               RefuBook
