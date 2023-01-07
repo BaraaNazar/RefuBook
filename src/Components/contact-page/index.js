@@ -1,19 +1,19 @@
 import { ImFacebook, ImTwitter } from 'react-icons/im';
 import { FaInstagram } from 'react-icons/fa';
 import NavBar from '../../Containers/Navbar';
-import contactImage from '../../Contact.png';
+import contactImage from '../../images/Contact.png';
 
 function Contacts() {
   return (
-    <div className="h-screen w-full bg-[#70CDD6] flex items-center justify-center">
-      <div className="h-[90vh] xl:h-[90vh] w-11/12 xl:w-[90%] py-6 px-4 bg-[#E7FAFF] rounded-6xl shadow-custom-xl relative overflow-hidden">
+    <div className="h-full w-full bg-[#70CDD6] flex items-center justify-center">
+      <div className="min-h-screen xl:h-[90vh] w-11/12 xl:w-[90%] sm:my-11  py-6 px-4 bg-[#E7FAFF] rounded-6xl shadow-custom-xl relative overflow-hidden">
         <NavBar />
-        <div className="relative  z-10 flex flex-col-reverse md:flex-row md:justify-center md:gap-10">
-          <div className="mx-auto w-full md:w-[50%]">
+        <div className="relative z-10 flex flex-col-reverse md:flex-row md:justify-center md:gap-10">
+          <div className="mx-auto w-full md:w-[50%] relative z-10">
             <h1 className=" sm:text-left text-center sm:mx-auto md:pt-16  font-bold text-3xl sm:text-5xl text-[#4699C2]">
               Get in Touch
             </h1>
-            <p className=" md:pt-5 text-center text-[#8B8F9C] md:w-[65%]">
+            <p className=" md:pt-5 text-[#8B8F9C] sm:text-justify text-center md:w-[50%]">
               But Brooke Chaffin and Catherine Connors are looking to change
               that with the introduction.
             </p>
@@ -27,7 +27,7 @@ function Contacts() {
                 type="text"
                 placeholder="Your Message"
                 aria-label="disabled input"
-                className="rounded-md block min-h-[160px] max-h-[160px] md:min-h-[199px]  md:max-h-[200px] md:w-[450px] mt-3"
+                className="rounded-md block placeholder-pl-10 min-h-[160px] max-h-[160px] md:min-h-[199px]  md:max-h-[200px] md:w-[450px] mt-3"
               />
               <button
                 type="button"
@@ -36,16 +36,16 @@ function Contacts() {
                 Send
               </button>
             </form>
-            <div className="md:flex flex mt-4 sm:ml-3 gap-x-2 sm:mx-auto justify-center md:justify-start">
-              <FaInstagram className="text-[#4699C2] text-2xl " />
-              <ImTwitter className="text-[#4699C2] text-2xl " />
-              <ImFacebook className="text-[#4699C2] text-2xl " />
+            <div className="md:flex flex mt-2 sm:mt-4 sm:ml-3 gap-x-2 sm:mx-auto justify-center md:justify-start">
+              <FaInstagram className="text-[#4699C2] text-2xl mb-1 " />
+              <ImTwitter className="text-[#4699C2] text-2xl mb-1 " />
+              <ImFacebook className="text-[#4699C2] text-2xl mb-1" />
             </div>
           </div>
           <div className=" md:pt-12">
             <img
               src={contactImage}
-              className="mx-auto my-auto lg:w-[100%] w-[60%] h-[100%] md:w-[60%] md:h-[100%] lg:h-[100%]"
+              className="mx-auto my-auto   w-[300px] h-[190px] sm:w-[300px] sm:h-[100%] lg:w-[550px]  lg:h-[400px]"
               alt=""
             />
           </div>
