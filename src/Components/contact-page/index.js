@@ -1,9 +1,31 @@
 import { ImFacebook, ImTwitter } from 'react-icons/im';
 import { FaInstagram } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { addDoc,collection } from "firebase/firestore";
+import db from '../../Firebase/firebase';
 import NavBar from '../../Containers/Navbar';
 import contactImage from '../../images/Contact.png';
 
 function Contacts() {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  async function addingcontact() {
+    await addDoc(collection(db, "Contact"), {
+      email,
+      message
+      
+    })
+  }
+
+  
+  const saveDoc = (e) => {
+    e.preventDefault();
+
+    addingcontact();
+  };
+
+
   return (
     <div className="h-full w-full bg-[#70CDD6] flex items-center justify-center">
       <div className="min-h-screen xl:h-[90vh] w-11/12 xl:w-[90%] sm:my-11  py-6 px-4 bg-[#E7FAFF] rounded-6xl shadow-custom-xl relative overflow-hidden">
@@ -17,20 +39,20 @@ function Contacts() {
               But Brooke Chaffin and Catherine Connors are looking to change
               that with the introduction.
             </p>
-            <form className="flex flex-col">
+            <form onSubmit={saveDoc} className="flex flex-col">
               <p className="md:text-[10px] text-[#8B8F9C]  md:pt-3">Email</p>
-              <input
+              <input value={email} onChange={(e) => setEmail(e.target.value)}
                 placeholder="hello@gmail.com"
                 className="md:w-[450px] h-[50px] sm:h-[50px] rounded-md text-left "
               />
-              <textarea
+              <textarea value={message} onChange={(e) => setMessage(e.target.value)}
                 type="text"
                 placeholder="Your Message"
                 aria-label="disabled input"
                 className="rounded-md block placeholder-pl-10 min-h-[160px] max-h-[160px] md:min-h-[199px]  md:max-h-[200px] md:w-[450px] mt-3"
               />
               <button
-                type="button"
+                type="submit"
                 className="bg-[#4699C2] mx-auto rounded-[1009px] mt-1 md:ml-3 md:mt-1 text-white w-[125px] h-[40px]"
               >
                 Send
