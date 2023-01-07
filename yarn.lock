@@ -1649,7 +1649,7 @@
     node-fetch "2.6.7"
     tslib "^2.1.0"
 
-"@firebase/util@1.8.0":
+"@firebase/util@1.8.0", "@firebase/util@^1.8.0":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@firebase/util/-/util-1.8.0.tgz#e98354c5373f6b1d6b08219887340b79fd23557f"
   integrity sha512-clK6pTTxIiLMYz4UrvDTVAs2rIaOiroAuFdX67C0JalvEwzi6Vv8li6xAGj38tkj7Qax06mosM1fQkxf2h4VTg==
