@@ -15,9 +15,7 @@ function Contacts() {
       email,
       message
       
-    }).then(d => {
-      console.log(d);
-    });
+    })
   }
 
   
