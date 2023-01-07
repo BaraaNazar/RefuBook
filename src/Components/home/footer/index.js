@@ -5,7 +5,10 @@ function Footer() {
   return (
     <footer className="flex flex-col md:flex-row items-center justify-center md:justify-between flex-wrap bg-white p-2 lg:px-16">
       <div className="mx-auto xl:pr-8 mt-5 md:mt-1 mb-5 md:mb-1 flex justify-center items-center flex-shrink-0 text-white justify-center">
-        <NavLink to="/" className="flex  md:block md:w-auto tracking-tight ">
+        <NavLink
+          to="/home"
+          className="flex  md:block md:w-auto tracking-tight "
+        >
           <img src={Logo} className="h-6 mr-3 sm:h-9 " alt="Flowbite Logo" />
         </NavLink>
       </div>
@@ -14,7 +17,7 @@ function Footer() {
         <ul className="flex justify-center">
           <li className="mr-6">
             <NavLink
-              to="/"
+              to="/home"
               className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-white rounded md:bg-transparent text-gray-700 md:p-0 dark:text-white md:hover:text-blue-700"
               aria-current="page"
             >
@@ -57,7 +60,7 @@ function Footer() {
                   <button
                     type="button"
                     className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-6  rounded-full "
-                    href="/signup"
+                    href="/signUp"
                   >
                     Sign up
                   </button>

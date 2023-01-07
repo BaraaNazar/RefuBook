@@ -14,7 +14,7 @@ module.exports = {
         '5.5xl': '54px',
       },
       colors: {
-        'refubook-bg': '#6EC9D2',
+        'refubook-bg': '#70CDD6',
         'refubook-blue': '#4699C2',
         'custom-black': '#3F3B3B',
         'custom-gray': '#637381',
@@ -31,6 +31,8 @@ module.exports = {
       },
       boxShadow: {
         'custom-xl': '10px 10px 40px rgba(0, 0, 0, 0.25);',
+        'custom-sm': '0 3.13244px 3.13244px rgba(0, 0, 0, 0.25);',
+        'custom-sm-2': '0px 2px 4px rgba(96, 97, 112, 0.16);',
       },
     },
   },

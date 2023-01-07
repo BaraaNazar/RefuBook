@@ -9,7 +9,7 @@ function Navbar() {
     <nav className="text-refubook-blue px-2 sm:px-4 py-2.5 rounded m-3">
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex justify-between">
-          <NavLink to="/" className="flex items-center">
+          <NavLink to="/home" className="flex items-center">
             <img src={Logo} className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap">
               RefuBook
@@ -53,7 +53,7 @@ function Navbar() {
               </li>
               <li>
                 <NavLink
-                  to="/about"
+                  to="/About"
                   className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
                   About
