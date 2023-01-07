@@ -10,23 +10,21 @@ import Layout from './Containers/Layout';
 import SignUp from './Containers/SignUp';
 import Contact from './Containers/ContactPage';
 
-
 function App() {
   return (
     <div>
-
       <Routes>
         <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} /></Route>
+          <Route index element={<Home />} />
+        </Route>
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>
-      <Footer/>
+      <Footer />
 
       <Outlet />
-
     </div>
   );
 }

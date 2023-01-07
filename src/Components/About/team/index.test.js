@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import Team from './index';
+import Employee from './Employee';
 
-test('Should has heading title', () => {
-  render(<Team />);
-  const headingElement = screen.getByTitle('Header');
+test('Should has headers', () => {
+  render(<Employee />);
+  const headingElement = screen.getByRole('heading');
   expect(headingElement).toBeInTheDocument();
 });

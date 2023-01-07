@@ -7,12 +7,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAaUEtpCLq9MwHsk5ROme_2fKqO612m1wA",
-  authDomain: "refubook-24759.firebaseapp.com",
-  projectId: "refubook-24759",
-  storageBucket: "refubook-24759.appspot.com",
-  messagingSenderId: "955695332549",
-  appId: "1:955695332549:web:a488a54026aeb77c1c04ac"
+  apiKey: 'AIzaSyAaUEtpCLq9MwHsk5ROme_2fKqO612m1wA',
+  authDomain: 'refubook-24759.firebaseapp.com',
+  projectId: 'refubook-24759',
+  storageBucket: 'refubook-24759.appspot.com',
+  messagingSenderId: '955695332549',
+  appId: '1:955695332549:web:a488a54026aeb77c1c04ac',
 };
 
 // Initialize Firebase
