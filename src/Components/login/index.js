@@ -27,7 +27,9 @@ const index = () => {
                 type="button"
                 onClick={() => {}}
               >
-                <FaGoogle color="white" className="text-2xl xl:text-3xl" />
+                <Link to="/user-profile">
+                  <FaGoogle color="white" className="text-2xl xl:text-3xl" />
+                </Link>
               </button>
               <h5 className="text-xl font-bold text-refubook-blue xl:w-1/5 flex items-center justify-center">
                 OR
