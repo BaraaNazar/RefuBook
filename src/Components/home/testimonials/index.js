@@ -5,7 +5,7 @@ import './style.css';
 
 function Testimonial() {
   return (
-    <div className="flex flex-col md:flex-row md:justify-evenly items-center w-full space-y-4 text-center dark:bg-gray-900 dark:text-white">
+    <div className="flex flex-col md:flex-row md:justify-evenly items-center w-full space-y-4 text-center dark:bg-gray-900 dark:text-white p-16">
       <div>
         <img src={testimonialImg} className="w-fit p-4" alt="testimonialImg" />
       </div>
