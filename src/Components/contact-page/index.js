@@ -1,7 +1,7 @@
 import { ImFacebook, ImTwitter } from 'react-icons/im';
 import { FaInstagram } from 'react-icons/fa';
 import React, { useState } from 'react';
-import { addDoc,collection } from "firebase/firestore";
+import { addDoc, collection } from 'firebase/firestore';
 import db from '../../Firebase/firebase';
 import NavBar from '../../Containers/Navbar';
 import contactImage from '../../images/Contact.png';
@@ -11,20 +11,17 @@ function Contacts() {
   const [message, setMessage] = useState('');
 
   async function addingcontact() {
-    await addDoc(collection(db, "Contact"), {
+    await addDoc(collection(db, 'Contact'), {
       email,
-      message
-      
-    })
+      message,
+    });
   }
 
-  
   const saveDoc = (e) => {
     e.preventDefault();
 
     addingcontact();
   };
-
 
   return (
     <div className="h-full w-full bg-[#70CDD6] flex items-center justify-center">
@@ -41,11 +38,15 @@ function Contacts() {
             </p>
             <form onSubmit={saveDoc} className="flex flex-col">
               <p className="md:text-[10px] text-[#8B8F9C]  md:pt-3">Email</p>
-              <input value={email} onChange={(e) => setEmail(e.target.value)}
+              <input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="hello@gmail.com"
                 className="md:w-[450px] h-[50px] sm:h-[50px] rounded-md text-left "
               />
-              <textarea value={message} onChange={(e) => setMessage(e.target.value)}
+              <textarea
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
                 type="text"
                 placeholder="Your Message"
                 aria-label="disabled input"
