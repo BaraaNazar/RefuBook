@@ -71,7 +71,7 @@ function LoggedInNavbar() {
             <NavLink
               to="/"
               className={({ isActive }) =>
-                `text-3xl xl:text-lg block py-2 pl-3 pr-4 
+                `text-xl xl:text-lg block py-2 pl-3 pr-4 
                   font-bold no-underline order-3 xl:order-1
                   ${isActive ? 'text-refubook-blue' : 'text-[#BDBDBD]'} 
                   `
@@ -83,7 +83,7 @@ function LoggedInNavbar() {
             <NavLink
               to="/write"
               className={({ isActive }) =>
-                `text-3xl xl:text-lg block py-2 pl-3 pr-4 
+                `text-xl xl:text-lg block py-2 pl-3 pr-4 
                   font-bold no-underline order-1 xl:order-2
                   ${isActive ? 'text-refubook-blue' : 'text-[#BDBDBD]'} 
                   `
@@ -95,18 +95,18 @@ function LoggedInNavbar() {
             <NavLink
               to="/user-profile"
               className={({ isActive }) =>
-                `text-3xl xl:text-lg block py-2 pl-3 pr-4 
+                `text-xl xl:text-lg block py-2 pl-3 pr-4 
                   font-bold no-underline order-2 xl:order-3
                   ${isActive ? 'text-refubook-blue' : 'text-[#BDBDBD]'} 
                   `
               }
             >
-              MyAccount
+              My Account
             </NavLink>
 
             <NavLink
               to="/login"
-              className="text-[#BDBDBD] text-3xl xl:text-lg font-bold py-1 px-4 rounded-full order-4"
+              className="text-[#BDBDBD] text-xl xl:text-lg font-bold py-1 px-4 rounded-full order-4"
             >
               Sign out
             </NavLink>

@@ -88,16 +88,22 @@ const index = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-refubook-bg flex items-center justify-center">
+    <div
+      className="h-screen w-full bg-refubook-bg flex items-center justify-center"
+      data-testid="user-profile-main"
+    >
       <div className="h-[95vh] xl:h-[90vh]  w-11/12 py-6 px-4 bg-white rounded-6xl shadow-custom-xl relative overflow-hidden">
         <div className="hidden xl:block absolute -left-48 -top-4 z-0 w-[800px] h-[650px] rounded-[1009px] bg-[#E5FAFF]" />
 
         <div className="xl:hidden absolute -left-16 -bottom-[40%] z-0 w-[500px] h-[500px] rounded-[1009px] bg-[#E5FAFF]" />
 
-        <div className="relative z-10">
+        <div className="relative z-10" data-testid="Login-NavBar">
           <LoggedInNavbar />
 
-          <div className="flex flex-col xl:items-center mt-8 xl:mt-0 px-6">
+          <div
+            className="flex flex-col xl:items-center mt-8 xl:mt-0 px-6"
+            data-testid="user-secondary-container"
+          >
             <div className="relative flex flex-col items-center xl:block">
               <img
                 width={screenWidth > 1280 ? 130 : 100}
@@ -126,7 +132,10 @@ const index = () => {
                 )}
               </button>
 
-              <h3 className="text-base leading-6 font-medium">
+              <h3
+                className="text-base leading-6 font-medium"
+                data-testid="username"
+              >
                 Svyatoslav Taushev
               </h3>
             </div>
