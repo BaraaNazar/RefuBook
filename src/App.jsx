@@ -10,7 +10,6 @@ import SignUp from './Containers/SignUp';
 import Contact from './Containers/ContactPage';
 import UserProfile from './Containers/UserProfile';
 
-
 function App() {
   return (
     <div>
