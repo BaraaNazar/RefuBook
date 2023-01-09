@@ -1,10 +1,86 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  FacebookAuthProvider,
+} from 'firebase/auth';
+import { addDoc, collection } from 'firebase/firestore';
+import { v4 as uuidv4 } from "uuid";
 import NavBar from '../../Containers/Navbar';
+import db, { auth } from '../../Firebase/firebase';
+import { signUp } from '../../Features/signUpSlice';
 
 const index = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.signup);
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+ 
+  const signUpWithGoogle = async (e) => {
+    e.preventDefault();
+
+    await signInWithPopup(auth, googleProvider)
+      .then((userAuth) => {
+        dispatch(
+          signUp({
+            userId:uuidv4(),
+            email: userAuth.user.email,
+            friends: [],
+            jobtitle: '',
+            joinedDate: '',
+            location: '',
+            name: userAuth.user.displayName,
+            profilePicture: userAuth.user.photoURL,
+            skills: [],
+          })
+        );
+
+        addDoc(collection(db, 'Users'), {
+          user,
+        });
+      })
+      .catch((err) => {
+        alert(err);
+      });
+
+      const path = `/user-profile`; 
+      navigate(path);
+  };
+  const signUpWithFacebook = async (e) => {
+    e.preventDefault();
+
+    await signInWithPopup(auth, facebookProvider)
+      .then((userAuth) => {
+        dispatch(
+          signUp({
+            userId:uuidv4(),
+            email: userAuth.user.email,
+            friends: [],
+            jobtitle: '',
+            joinedDate: '',
+            location: '',
+            name: userAuth.user.displayName,
+            profilePicture: userAuth.user.photoURL,
+            skills: [],
+          })
+        );
+
+        addDoc(collection(db, 'Users'), {
+          user,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      const path = `/user-profile`; 
+      navigate(path);
+  };
+
   return (
-    <div className="h-screen w-full bg-refubook-bg flex items-center justify-center">
+    <div className="h-screen w-full bg-refubook-blue flex items-center justify-center">
       <div className="h-[90vh] xl:h-[80vh] w-11/12 xl:w-4/5 py-6 px-4 bg-white rounded-6xl shadow-custom-xl relative overflow-hidden">
         <div className="hidden xl:block absolute -left-48 -top-4 z-0 w-[800px] h-[650px] rounded-[1009px] bg-[#E5FAFF]" />
 
@@ -25,17 +101,19 @@ const index = () => {
               <button
                 className="bg-[#EB5757] xl:w-2/5 h-12 rounded-6xl flex items-center justify-center"
                 type="button"
-                onClick={() => {}}
+                onClick={signUpWithGoogle}
               >
                 <FaGoogle color="white" className="text-2xl xl:text-3xl" />
               </button>
+
               <h5 className="text-xl font-bold text-refubook-blue xl:w-1/5 flex items-center justify-center">
                 OR
               </h5>
+
               <button
                 className="bg-[#2F80ED] xl:w-2/5 h-12 rounded-6xl flex items-center justify-center"
                 type="button"
-                onClick={() => {}}
+                onClick={signUpWithFacebook}
               >
                 <FaFacebookF color="white" className="text-2xl xl:text-3xl" />
               </button>

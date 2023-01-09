@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { MdOutlineEdit } from 'react-icons/md';
 import { BsFillCameraFill } from 'react-icons/bs';
 import Avatar from '../../images/male-avatar.png';
@@ -51,12 +52,15 @@ const CARD_DATA = [
 ];
 
 const index = () => {
+
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
   const [isEditMode, setIsEditMode] = useState(false);
   const [slideNum, setSlideNum] = useState(0);
   const [sliderTotalContent, setSliderTotalContent] = useState(
     screenWidth > 1280 ? 6 : 2
   );
+  const { user } = useSelector((state) => state.signup);
+const profilePic= user.profilePicture
 
   useEffect(() => {
     const resizeScreen = () => {
@@ -106,10 +110,11 @@ const index = () => {
           >
             <div className="relative flex flex-col items-center xl:block">
               <img
+                className=' rounded-[50%]'
                 width={screenWidth > 1280 ? 130 : 100}
                 height={screenWidth > 1280 ? 130 : 100}
-                src={Avatar}
-                alt="Avatar"
+                src={profilePic}
+                alt="profilePic"
               />
 
               <button
@@ -136,7 +141,7 @@ const index = () => {
                 className="text-base leading-6 font-medium"
                 data-testid="username"
               >
-                Svyatoslav Taushev
+              {user.name}
               </h3>
             </div>
 
@@ -151,6 +156,7 @@ const index = () => {
                 >
                   Name
                   <input
+                  placeholder={user.name}
                     name="name"
                     id="name"
                     type="text"

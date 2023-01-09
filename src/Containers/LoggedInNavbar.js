@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
+import { signOut } from 'firebase/auth';
+import {auth} from '../Firebase/firebase'
 import Avatar from '../images/male-avatar.png';
 import Logo from '../images/RefuBook-Logo.png';
 
@@ -10,6 +12,9 @@ function LoggedInNavbar() {
 
   const toggleNavbar = () => {
     setIsNavbarOpen((prev) => !prev);
+  };
+  const logOut = () => {
+    signOut(auth);
   };
 
   return (
@@ -107,6 +112,7 @@ function LoggedInNavbar() {
             <NavLink
               to="/login"
               className="text-[#BDBDBD] text-xl xl:text-lg font-bold py-1 px-4 rounded-full order-4"
+              onClick={logOut}
             >
               Sign out
             </NavLink>

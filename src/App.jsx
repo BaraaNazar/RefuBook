@@ -27,7 +27,7 @@ function App() {
       <Footer />
 
       <Outlet />
-    </div>
+    </div> 
   );
 }
 
