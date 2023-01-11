@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react';
 import { MdOutlineEdit } from 'react-icons/md';
+import { useSelector } from 'react-redux';
 import { BsFillCameraFill } from 'react-icons/bs';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../Firebase/firebase';
 import Avatar from '../../images/male-avatar.png';
 import Card from './Card';
 import LoggedInNavbar from '../../Containers/LoggedInNavbar';
+// import { signIn } from '../../Features/signUpSlice';
 
 const CARD_DATA = [
   {
@@ -51,6 +55,23 @@ const CARD_DATA = [
 ];
 
 const index = () => {
+  const [signedUser, setSignedUser] = useState({});
+  // const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.signIn);
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      //  console.log(currentUser)
+      if (currentUser) {
+        setSignedUser(currentUser);
+        // dispatch(signIn(currentUser));
+      }
+    });
+    return () => unSubscribe();
+  }, [signedUser]);
+
+  const profilePic = signedUser.photoURL;
+
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
   const [isEditMode, setIsEditMode] = useState(false);
   const [slideNum, setSlideNum] = useState(0);
@@ -90,7 +111,7 @@ const index = () => {
   return (
     <div
       className="h-screen w-full bg-refubook-bg flex items-center justify-center"
-      data-testid="user-profile-main"
+      data-testid="signedUser-profile-main"
     >
       <div className="h-[95vh] xl:h-[90vh]  w-11/12 py-6 px-4 bg-white rounded-6xl shadow-custom-xl relative overflow-hidden">
         <div className="hidden xl:block absolute -left-48 -top-4 z-0 w-[800px] h-[650px] rounded-[1009px] bg-[#E5FAFF]" />
@@ -102,14 +123,15 @@ const index = () => {
 
           <div
             className="flex flex-col xl:items-center mt-8 xl:mt-0 px-6"
-            data-testid="user-secondary-container"
+            data-testid="signedUser-secondary-container"
           >
             <div className="relative flex flex-col items-center xl:block">
               <img
+                className=" rounded-[50%]"
                 width={screenWidth > 1280 ? 130 : 100}
                 height={screenWidth > 1280 ? 130 : 100}
-                src={Avatar}
-                alt="Avatar"
+                src={profilePic}
+                alt="profilePic"
               />
 
               <button
@@ -136,7 +158,7 @@ const index = () => {
                 className="text-base leading-6 font-medium"
                 data-testid="username"
               >
-                Svyatoslav Taushev
+                {signedUser.displayName}
               </h3>
             </div>
 
@@ -151,6 +173,7 @@ const index = () => {
                 >
                   Name
                   <input
+                    placeholder={signedUser.displayName}
                     name="name"
                     id="name"
                     type="text"
@@ -177,6 +200,7 @@ const index = () => {
                 >
                   Biography
                   <input
+                    placeholder={user.jobtitle}
                     name="biography"
                     id="biography"
                     type="text"

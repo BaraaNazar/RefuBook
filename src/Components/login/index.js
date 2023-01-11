@@ -1,10 +1,42 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
+// import { useDispatch } from 'react-redux';
+import {
+  GoogleAuthProvider,
+  signInWithPopup,
+  FacebookAuthProvider,
+} from 'firebase/auth';
 import NavBar from '../../Containers/Navbar';
+import { auth } from '../../Firebase/firebase';
+// import { signIn } from '../../Features/signUpSlice';
 
 const index = () => {
+  const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const { user } = useSelector((state) => state.signup);
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+
+  const logInWithGoogle = (e) => {
+    e.preventDefault();
+
+    signInWithPopup(auth, googleProvider);
+
+    const path = `/user-profile`;
+    navigate(path);
+  };
+
+  const logInWithFacebook = (e) => {
+    e.preventDefault();
+
+    signInWithPopup(auth, facebookProvider);
+
+    const path = `/user-profile`;
+    navigate(path);
+  };
+
   return (
-    <div className="h-screen w-full bg-refubook-bg flex items-center justify-center">
+    <div className="h-screen w-full bg-refubook-blue flex items-center justify-center">
       <div className="h-[90vh] xl:h-[80vh] w-11/12 xl:w-4/5 py-6 px-4 bg-white rounded-6xl shadow-custom-xl relative overflow-hidden">
         <div className="hidden xl:block absolute -left-48 -top-4 z-0 w-[800px] h-[650px] rounded-[1009px] bg-[#E5FAFF]" />
 
@@ -25,11 +57,9 @@ const index = () => {
               <button
                 className="bg-[#EB5757] xl:w-2/5 h-12 rounded-6xl flex items-center justify-center"
                 type="button"
-                onClick={() => {}}
+                onClick={logInWithGoogle}
               >
-                <Link to="/user-profile">
-                  <FaGoogle color="white" className="text-2xl xl:text-3xl" />
-                </Link>
+                <FaGoogle color="white" className="text-2xl xl:text-3xl" />
               </button>
               <h5 className="text-xl font-bold text-refubook-blue xl:w-1/5 flex items-center justify-center">
                 OR
@@ -37,7 +67,7 @@ const index = () => {
               <button
                 className="bg-[#2F80ED] xl:w-2/5 h-12 rounded-6xl flex items-center justify-center"
                 type="button"
-                onClick={() => {}}
+                onClick={logInWithFacebook}
               >
                 <FaFacebookF color="white" className="text-2xl xl:text-3xl" />
               </button>
