@@ -176,7 +176,7 @@ function Navbar() {
           </ul>
         </div>
       ) : (
-        ''
+        user
       )}
     </nav>
   );
