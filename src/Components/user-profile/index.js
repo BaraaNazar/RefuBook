@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { MdOutlineEdit } from 'react-icons/md';
+// import { useSelector, useDispatch } from 'react-redux';
 import { BsFillCameraFill } from 'react-icons/bs';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../Firebase/firebase';
 import Avatar from '../../images/male-avatar.png';
 import Card from './Card';
 import LoggedInNavbar from '../../Containers/LoggedInNavbar';
+// import { signIn } from '../../Features/signUpSlice';
 
 const CARD_DATA = [
   {
@@ -52,6 +55,21 @@ const CARD_DATA = [
 ];
 
 const index = () => {
+  const [user, setUser] = useState({});
+  // const dispatch = useDispatch();
+  // const { user } = useSelector((state) => state.signIn);
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+        // dispatch(signIn(currentUser));
+      }
+    });
+    return () => unSubscribe();
+  }, [user]);
+
+  const profilePic = user.photoURL;
 
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -59,8 +77,6 @@ const index = () => {
   const [sliderTotalContent, setSliderTotalContent] = useState(
     screenWidth > 1280 ? 6 : 2
   );
-  const { user } = useSelector((state) => state.signup);
-const profilePic= user.profilePicture
 
   useEffect(() => {
     const resizeScreen = () => {
@@ -110,7 +126,7 @@ const profilePic= user.profilePicture
           >
             <div className="relative flex flex-col items-center xl:block">
               <img
-                className=' rounded-[50%]'
+                className=" rounded-[50%]"
                 width={screenWidth > 1280 ? 130 : 100}
                 height={screenWidth > 1280 ? 130 : 100}
                 src={profilePic}
@@ -141,7 +157,7 @@ const profilePic= user.profilePicture
                 className="text-base leading-6 font-medium"
                 data-testid="username"
               >
-              {user.name}
+                {user.displayName}
               </h3>
             </div>
 
@@ -156,7 +172,7 @@ const profilePic= user.profilePicture
                 >
                   Name
                   <input
-                  placeholder={user.name}
+                    placeholder={user.displayName}
                     name="name"
                     id="name"
                     type="text"

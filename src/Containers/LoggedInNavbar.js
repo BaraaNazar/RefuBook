@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 import { signOut } from 'firebase/auth';
-import {auth} from '../Firebase/firebase'
+import { auth } from '../Firebase/firebase';
 import Avatar from '../images/male-avatar.png';
 import Logo from '../images/RefuBook-Logo.png';
 

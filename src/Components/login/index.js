@@ -1,4 +1,4 @@
-import { Link,useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 import {
   GoogleAuthProvider,
@@ -9,7 +9,6 @@ import NavBar from '../../Containers/Navbar';
 import { auth } from '../../Firebase/firebase';
 
 const index = () => {
-
   const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
@@ -18,29 +17,19 @@ const index = () => {
   const logInWithGoogle = (e) => {
     e.preventDefault();
 
-    signInWithPopup(auth, googleProvider)
-      .then((userAuth) => {
-        console.log(userAuth.user.displayName);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-      const path = `/user-profile`; 
-      navigate(path);
+    signInWithPopup(auth, googleProvider);
+
+    const path = `/user-profile`;
+    navigate(path);
   };
 
   const logInWithFacebook = (e) => {
     e.preventDefault();
 
-    signInWithPopup(auth, facebookProvider)
-      .then((userAuth) => {
-        console.log(userAuth.user.displayName);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-      const path = `/user-profile`; 
-      navigate(path);
+    signInWithPopup(auth, facebookProvider);
+
+    const path = `/user-profile`;
+    navigate(path);
   };
 
   return (

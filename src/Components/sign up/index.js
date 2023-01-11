@@ -7,7 +7,7 @@ import {
   FacebookAuthProvider,
 } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
 import NavBar from '../../Containers/Navbar';
 import db, { auth } from '../../Firebase/firebase';
 import { signUp } from '../../Features/signUpSlice';
@@ -18,7 +18,7 @@ const index = () => {
   const { user } = useSelector((state) => state.signup);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
- 
+
   const signUpWithGoogle = async (e) => {
     e.preventDefault();
 
@@ -26,7 +26,7 @@ const index = () => {
       .then((userAuth) => {
         dispatch(
           signUp({
-            userId:uuidv4(),
+            userId: uuidv4(),
             email: userAuth.user.email,
             friends: [],
             jobtitle: '',
@@ -38,16 +38,14 @@ const index = () => {
           })
         );
 
-        addDoc(collection(db, 'Users'), {
+         addDoc(collection(db, 'Users'), {
           user,
         });
       })
-      .catch((err) => {
-        alert(err);
-      });
+      .catch(() => {});
 
-      const path = `/user-profile`; 
-      navigate(path);
+    const path = `/user-profile`;
+    navigate(path);
   };
   const signUpWithFacebook = async (e) => {
     e.preventDefault();
@@ -56,7 +54,7 @@ const index = () => {
       .then((userAuth) => {
         dispatch(
           signUp({
-            userId:uuidv4(),
+            userId: uuidv4(),
             email: userAuth.user.email,
             friends: [],
             jobtitle: '',
@@ -72,11 +70,9 @@ const index = () => {
           user,
         });
       })
-      .catch((err) => {
-        console.log(err);
-      });
-      const path = `/user-profile`; 
-      navigate(path);
+      .catch(() => {});
+    const path = `/user-profile`;
+    navigate(path);
   };
 
   return (
