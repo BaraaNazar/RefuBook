@@ -1,12 +1,20 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../Firebase/firebase';
 import Logo from '../images/RefuBook-Logo.png';
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
+  const [user, setUser] = useState({});
+
+  onAuthStateChanged(auth, (currentUser) => {
+    if (currentUser) {
+      setUser(currentUser);
+    }
+  });
   return (
-    <nav className="text-refubook-blue px-2 sm:px-4 py-2.5 rounded m-3">
+    <nav className="text-refubook-blue px-2 sm:px-4 py-2.5 rounded ml-3 mr-3 mb-3">
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex justify-between">
           <NavLink to="/" className="flex items-center">
@@ -41,7 +49,7 @@ function Navbar() {
             </svg>
           </button>
           <div className="hidden md:block md:w-auto">
-            <ul className="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+            <ul className="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
               <li>
                 <NavLink
                   to="/"
@@ -114,7 +122,7 @@ function Navbar() {
       </div>
       {navbar ? (
         <div className="w-full md:hidden md:w-auto">
-          <ul className="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white ">
+          <ul className="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
             <li>
               <NavLink
                 to="/home"
