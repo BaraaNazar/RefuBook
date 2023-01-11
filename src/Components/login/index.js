@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
+// import { useDispatch } from 'react-redux';
 import {
   GoogleAuthProvider,
   signInWithPopup,
@@ -7,10 +8,12 @@ import {
 } from 'firebase/auth';
 import NavBar from '../../Containers/Navbar';
 import { auth } from '../../Firebase/firebase';
+// import { signIn } from '../../Features/signUpSlice';
 
 const index = () => {
   const navigate = useNavigate();
-
+  // const dispatch = useDispatch();
+  // const { user } = useSelector((state) => state.signup);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 

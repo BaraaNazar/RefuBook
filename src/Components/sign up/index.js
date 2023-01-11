@@ -7,7 +7,6 @@ import {
   FacebookAuthProvider,
 } from 'firebase/auth';
 import { addDoc, collection } from 'firebase/firestore';
-import { v4 as uuidv4 } from 'uuid';
 import NavBar from '../../Containers/Navbar';
 import db, { auth } from '../../Firebase/firebase';
 import { signUp } from '../../Features/signUpSlice';
@@ -18,31 +17,29 @@ const index = () => {
   const { user } = useSelector((state) => state.signup);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
-
   const signUpWithGoogle = async (e) => {
     e.preventDefault();
 
-    await signInWithPopup(auth, googleProvider)
-      .then((userAuth) => {
-        dispatch(
-          signUp({
-            userId: uuidv4(),
-            email: userAuth.user.email,
-            friends: [],
-            jobtitle: '',
-            joinedDate: '',
-            location: '',
-            name: userAuth.user.displayName,
-            profilePicture: userAuth.user.photoURL,
-            skills: [],
-          })
-        );
+    await signInWithPopup(auth, googleProvider).then((userAuth) => {
+      dispatch(
+        signUp({
+          userId: userAuth.user.uid,
+          email: userAuth.user.email,
+          friends: [],
+          jobtitle: '',
+          joinedDate: '',
+          location: '',
+          name: userAuth.user.displayName,
+          profilePicture: userAuth.user.photoURL,
+          skills: [],
+        })
+      );
+      // const userRef = doc(db, 'Users', userAuth.user.uid);
 
-         addDoc(collection(db, 'Users'), {
-          user,
-        });
-      })
-      .catch(() => {});
+      addDoc(collection(db, 'Users'), {
+        user,
+      });
+    });
 
     const path = `/user-profile`;
     navigate(path);
@@ -54,7 +51,7 @@ const index = () => {
       .then((userAuth) => {
         dispatch(
           signUp({
-            userId: uuidv4(),
+            userId: userAuth.user.uid,
             email: userAuth.user.email,
             friends: [],
             jobtitle: '',
