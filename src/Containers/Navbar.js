@@ -108,14 +108,23 @@ function Navbar() {
             </div>
               </NavLink>
             </li>
+            {!user.displayName?(
               <li>
-                <NavLink
+                 <NavLink
                   to="/login"
                   className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
                 >
                   Sign In
                 </NavLink>
               </li>
+            ):(
+              <NavLink
+              to="/user-profile"
+              className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
+            >
+              {user.displayName}
+            </NavLink>
+            )}
             </ul>
           </div>
         </div>
@@ -176,7 +185,7 @@ function Navbar() {
           </ul>
         </div>
       ) : (
-        user
+        ""
       )}
     </nav>
   );
