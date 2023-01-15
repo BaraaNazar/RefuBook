@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { MdOutlineEdit } from 'react-icons/md';
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { collection, onSnapshot } from 'firebase/firestore';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -8,7 +8,7 @@ import db, { auth } from '../../Firebase/firebase';
 import Avatar from '../../images/male-avatar.png';
 import Card from './Card';
 import LoggedInNavbar from '../../Containers/LoggedInNavbar';
-// import { signIn } from '../../Features/signUpSlice';
+import { signedIn } from '../../Features/signedInUserSlice';
 
 const CARD_DATA = [
   {
@@ -57,9 +57,9 @@ const CARD_DATA = [
 
 const index = () => {
   const [userRef, setUserRef] = useState([]);
-  const [loggedUser, setLoggedUser] = useState({});
+  const { loggedInUser } = useSelector((state) => state.signedin);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     onSnapshot(collection(db, 'Users'), (snapshot) => {
@@ -79,9 +79,7 @@ const index = () => {
     onAuthStateChanged(auth, (currentUser) => {
       userRef.map((signedUser) => {
         if (currentUser.email === signedUser.userEmail) {
-          setLoggedUser(signedUser.user);
-        } else {
-          console.log('messed');
+          dispatch(signedIn(signedUser.user));
         }
         return true;
       });
@@ -146,7 +144,7 @@ const index = () => {
                 className=" rounded-[50%]"
                 width={screenWidth > 1280 ? 130 : 100}
                 height={screenWidth > 1280 ? 130 : 100}
-                src={loggedUser.profilePicture}
+                src={loggedInUser.profilePicture}
                 alt="profilePic"
               />
 
@@ -174,7 +172,7 @@ const index = () => {
                 className="text-base leading-6 font-medium"
                 data-testid="username"
               >
-                {loggedUser.name}
+                {loggedInUser.name}
               </h3>
             </div>
 
@@ -189,7 +187,7 @@ const index = () => {
                 >
                   Name
                   <input
-                    placeholder={loggedUser.name}
+                    placeholder={loggedInUser.name}
                     name="name"
                     id="name"
                     type="text"
@@ -203,7 +201,7 @@ const index = () => {
                 >
                   surename
                   <input
-                    placeholder={loggedUser.surename}
+                    placeholder={loggedInUser.surename}
                     name="surename"
                     id="surename"
                     type="text"
@@ -217,7 +215,7 @@ const index = () => {
                 >
                   Biography
                   <input
-                    placeholder={loggedUser.jobtitle}
+                    placeholder={loggedInUser.jobtitle}
                     name="biography"
                     id="biography"
                     type="text"
@@ -231,7 +229,7 @@ const index = () => {
                 >
                   Location
                   <input
-                    placeholder={loggedUser.location}
+                    placeholder={loggedInUser.location}
                     name="location"
                     id="location"
                     type="text"
