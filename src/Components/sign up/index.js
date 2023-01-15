@@ -1,12 +1,13 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import {
   GoogleAuthProvider,
   signInWithPopup,
   FacebookAuthProvider,
 } from 'firebase/auth';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import NavBar from '../../Containers/Navbar';
 import db, { auth } from '../../Firebase/firebase';
 import { signUp } from '../../Features/signUpSlice';
@@ -17,10 +18,67 @@ const index = () => {
   const { user } = useSelector((state) => state.signup);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
+  const [userRef, setUserRef] = useState([]);
+  // console.log(userRef)
+  useEffect(() => {
+    onSnapshot(collection(db, 'Users'), (snapshot) => {
+      snapshot.docChanges().forEach((docChange) => {
+        const userIDD = docChange.doc.id;
+        const userEmail = docChange.doc.data().user.email;
+        const userObj = { ...docChange.doc.data(), userIDD, userEmail };
+        // console.log(docChange.doc.data().user.email)
+        setUserRef((prevUSerRef) => [...prevUSerRef, userObj]);
+      });
+    });
+  }, []);
+
+  // eslint-disable-next-line
+
+  // console.log(userRef);
+
   const signUpWithGoogle = async (e) => {
     e.preventDefault();
 
     await signInWithPopup(auth, googleProvider).then((userAuth) => {
+      dispatch(
+        signUp({
+          userId: userAuth.user.uid,
+          surename: '',
+          email: userAuth.user.email,
+          friends: [],
+          jobtitle: '',
+          joinedDate: '',
+          location: '',
+          name: userAuth.user.displayName,
+          profilePicture: userAuth.user.photoURL,
+          skills: [],
+        })
+      );
+
+      if (
+        userRef.some(
+          (singleUser) => userAuth.user.email === singleUser.userEmail
+        )
+      ) {
+        // eslint-disable-next-line
+        console.log('already signed Up');
+      } else {
+        // eslint-disable-next-line
+        console.log('signed Up successfully');
+        addDoc(collection(db, 'Users'), {
+          user,
+        });
+      }
+    });
+
+    const path = `/user-profile`;
+    navigate(path);
+  };
+
+  const signUpWithFacebook = async (e) => {
+    e.preventDefault();
+
+    await signInWithPopup(auth, facebookProvider).then((userAuth) => {
       dispatch(
         signUp({
           userId: userAuth.user.uid,
@@ -34,40 +92,22 @@ const index = () => {
           skills: [],
         })
       );
-      // const userRef = doc(db, 'Users', userAuth.user.uid);
-
-      addDoc(collection(db, 'Users'), {
-        user,
-      });
-    });
-
-    const path = `/user-profile`;
-    navigate(path);
-  };
-  const signUpWithFacebook = async (e) => {
-    e.preventDefault();
-
-    await signInWithPopup(auth, facebookProvider)
-      .then((userAuth) => {
-        dispatch(
-          signUp({
-            userId: userAuth.user.uid,
-            email: userAuth.user.email,
-            friends: [],
-            jobtitle: '',
-            joinedDate: '',
-            location: '',
-            name: userAuth.user.displayName,
-            profilePicture: userAuth.user.photoURL,
-            skills: [],
-          })
-        );
-
+      if (
+        userRef.some(
+          (singleUser) => userAuth.user.email === singleUser.userEmail
+        )
+      ) {
+        // eslint-disable-next-line
+        console.log('already signed Up');
+      } else {
+        // eslint-disable-next-line
+        console.log('signed Up successfully');
         addDoc(collection(db, 'Users'), {
           user,
         });
-      })
-      .catch(() => {});
+      }
+    });
+
     const path = `/user-profile`;
     navigate(path);
   };
