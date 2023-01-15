@@ -8,7 +8,7 @@ import Login from './Containers/LogIn';
 import Layout from './Containers/Layout';
 import SignUp from './Containers/SignUp';
 import Contact from './Containers/ContactPage';
-import  ChatsAll from './Containers/ChatsAll';
+import ChatsAll from './Containers/ChatsAll';
 import UserProfile from './Containers/UserProfile';
 
 function App() {
@@ -16,7 +16,8 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} /></Route>
+          <Route index element={<Home />} />
+        </Route>
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/ChatsAll" element={<ChatsAll />} />

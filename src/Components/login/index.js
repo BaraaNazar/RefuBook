@@ -12,8 +12,7 @@ import { auth } from '../../Firebase/firebase';
 
 const index = () => {
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const { user } = useSelector((state) => state.signup);
+
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
 
