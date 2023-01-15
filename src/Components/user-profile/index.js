@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { MdOutlineEdit } from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { collection, onSnapshot } from 'firebase/firestore';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../Firebase/firebase';
+import db, { auth } from '../../Firebase/firebase';
 import Avatar from '../../images/male-avatar.png';
 import Card from './Card';
 import LoggedInNavbar from '../../Containers/LoggedInNavbar';
-// import { signIn } from '../../Features/signUpSlice';
+import { signedIn } from '../../Features/signedInUserSlice';
 
 const CARD_DATA = [
   {
@@ -55,22 +56,35 @@ const CARD_DATA = [
 ];
 
 const index = () => {
-  const [signedUser, setSignedUser] = useState({});
-  // const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.signIn);
+  const [userRef, setUserRef] = useState([]);
+  const { loggedInUser } = useSelector((state) => state.signedin);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
-      //  console.log(currentUser)
-      if (currentUser) {
-        setSignedUser(currentUser);
-        // dispatch(signIn(currentUser));
-      }
+    onSnapshot(collection(db, 'Users'), (snapshot) => {
+      snapshot.docChanges().forEach((docChange) => {
+        const userIDD = docChange.doc.id;
+        const userEmail = docChange.doc.data().user.email;
+        const userObj = { ...docChange.doc.data(), userIDD, userEmail };
+        // console.log(docChange.doc.data().user.email)
+        setUserRef((prevUSerRef) => [...prevUSerRef, userObj]);
+      });
     });
-    return () => unSubscribe();
-  }, [signedUser]);
 
-  const profilePic = signedUser.photoURL;
+    // break
+  }, []);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      userRef.map((signedUser) => {
+        if (currentUser.email === signedUser.userEmail) {
+          dispatch(signedIn(signedUser.user));
+        }
+        return true;
+      });
+    });
+  }, [userRef]);
 
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -130,7 +144,7 @@ const index = () => {
                 className=" rounded-[50%]"
                 width={screenWidth > 1280 ? 130 : 100}
                 height={screenWidth > 1280 ? 130 : 100}
-                src={profilePic}
+                src={loggedInUser.profilePicture}
                 alt="profilePic"
               />
 
@@ -158,7 +172,7 @@ const index = () => {
                 className="text-base leading-6 font-medium"
                 data-testid="username"
               >
-                {signedUser.displayName}
+                {loggedInUser.name}
               </h3>
             </div>
 
@@ -173,7 +187,7 @@ const index = () => {
                 >
                   Name
                   <input
-                    placeholder={signedUser.displayName}
+                    placeholder={loggedInUser.name}
                     name="name"
                     id="name"
                     type="text"
@@ -187,6 +201,7 @@ const index = () => {
                 >
                   surename
                   <input
+                    placeholder={loggedInUser.surename}
                     name="surename"
                     id="surename"
                     type="text"
@@ -200,7 +215,7 @@ const index = () => {
                 >
                   Biography
                   <input
-                    placeholder={user.jobtitle}
+                    placeholder={loggedInUser.jobtitle}
                     name="biography"
                     id="biography"
                     type="text"
@@ -214,6 +229,7 @@ const index = () => {
                 >
                   Location
                   <input
+                    placeholder={loggedInUser.location}
                     name="location"
                     id="location"
                     type="text"

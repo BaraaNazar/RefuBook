@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import {collection, onSnapshot} from "firebase/firestore"
 import db from "../../Firebase/firebase"
@@ -30,5 +31,6 @@ function Messages(){
             </div>
         </div>
     )
+
 }
 export default Messages;

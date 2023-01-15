@@ -9,9 +9,6 @@ const signUpSlice = createSlice({
     signUp: (state, action) => {
       state.user = action.payload;
     },
-    signIn: (state, action) => {
-      state.user = action.payload;
-    },
   },
 });
 

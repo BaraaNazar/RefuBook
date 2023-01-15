@@ -1,4 +1,5 @@
 
+
 import React, { useState } from "react";
 import {onAuthStateChanged} from "firebase/auth"
 import {auth} from "../../Firebase/firebase"
@@ -29,9 +30,10 @@ return (
     <div className="text-xs text-gray-500">Front-end Developer</div>
     <div className="flex flex-row items-center mt-3">
         <Toggle/>
+
         <div className="leading-none ml-1 font-bold text-xs">Active</div>
+      </div>
     </div>
-    </div>
-)
+  );
 }
 export default User;
