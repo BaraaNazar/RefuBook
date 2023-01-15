@@ -1,15 +1,21 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import User from './user';
 import ActiveConversations from './active-conversations';
 import Messages from './messages';
 import Input from './input';
 import './style.css';
 import Search from './search';
+import LogIn from '../../Containers/LogIn';
+import { auth } from '../../Firebase/firebase';
 
 
 
     function Chat(){
+        const [user] = useAuthState(auth)
         return (
+            <div>
+                {user? 
             <div>
                 <div>
     <div className="flex h-screen antialiased text-gray-800">
@@ -43,12 +49,16 @@ import Search from './search';
             <Search/>
             <ActiveConversations/>
         </div>
-        <div className="flex flex-col flex-auto h-full p-6">
+        <div className="flex flex-col flex-auto h-screen p-6">
             <div
-            className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-full p-4"
+            className="flex flex-col justify-between flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-screen p-4"
             >
+            <div className='overflow-y-auto'>
             <Messages/>
-            <Input/>
+            </div>
+            <div>
+            <Input />
+            </div>
             </div>
         </div>
         </div>
@@ -56,6 +66,9 @@ import Search from './search';
         </div>
 
 
+            </div>
+            : <LogIn/>
+            }
             </div>
         );
     }
