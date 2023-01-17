@@ -1,13 +1,9 @@
 const employees = [
-  { id: 1, name: 'Baraa', country: 'Turkey', Role: 'Author at Panoply Store' },
-  { id: 2, name: 'Sakar', country: 'Turkey', Role: 'Author at Panoply Store' },
-  { id: 3, name: 'Banel', country: 'USA', Role: 'Author at Panoply Store' },
-  { id: 4, name: 'Nma', country: 'Lebanon', Role: 'Author at Panoply Store' },
-  { id: 5, name: 'Heyam', country: 'Lebanon', Role: 'Author at Panoply Store' },
-  { id: 6, name: 'TEST', country: 'Lebanon', Role: 'Author at Panoply Store' },
-  { id: 7, name: 'TEST', country: 'Lebanon', Role: 'Author at Panoply Store' },
-  { id: 8, name: 'TEST', country: 'Lebanon', Role: 'Author at Panoply Store' },
-  { id: 9, name: 'TEST', country: 'Lebanon', Role: 'Author at Panoply Store' },
+  { id: 1, name: 'Baraa', country: 'Iraq', Role: 'Front-end developer' },
+  { id: 2, name: 'Sakar', country: 'Kurdistan-Iraq', Role: 'Front-end developer' },
+  { id: 3, name: 'Banel', country: 'Kurdistan-Iraq', Role: 'Front-end developer' },
+  { id: 4, name: 'Nma', country: 'Kurdistan-Iraq', Role: 'Front-end developer' },
+  { id: 5, name: 'Heyam', country: 'Lebanon', Role: 'Front-end developer' },
 ];
 
 export default employees;
