@@ -13,7 +13,9 @@ function Testimonial() {
         <Carousel showArrows={false} itemPosition={consts.END} itemsToShow={1}>
           <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-            As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.
+              As a refugee, my life has been filled with uncertainty and
+              hardship. But through it all, I have found strength and resilience
+              within myself that I never knew existed.
             </p>
             <div>
               <h3 title="Header" className="text-gray-300">
@@ -24,18 +26,22 @@ function Testimonial() {
           </div>
           <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-            Despite the challenges I have faced, I am grateful for the opportunities and support that have helped me rebuild my life and find hope for the future.
+              Despite the challenges I have faced, I am grateful for the
+              opportunities and support that have helped me rebuild my life and
+              find hope for the future.
             </p>
             <div>
               <h3 title="Header" className="text-gray-300">
-              Mohammed Al-ani,
+                Mohammed Al-ani,
               </h3>
               <h3 className="text-gray-300">Musel</h3>
             </div>
           </div>
           <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-            As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.
+              As a refugee, my life has been filled with uncertainty and
+              hardship. But through it all, I have found strength and resilience
+              within myself that I never knew existed.
             </p>
             <div>
               <h3 title="Header" className="text-gray-300">
@@ -46,7 +52,9 @@ function Testimonial() {
           </div>
           <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-            As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.
+              As a refugee, my life has been filled with uncertainty and
+              hardship. But through it all, I have found strength and resilience
+              within myself that I never knew existed.
             </p>
             <div>
               <h3 title="Header" className="text-gray-300">

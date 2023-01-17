@@ -9,15 +9,25 @@ function CallToAction() {
       </div>
       <div className="flex flex-col justify-center items-center text-center">
         <h1 className="text-3xl font-light text-sky-600">
-        A New Beginning: The Story of a Syrian Boy`s Journey to Safety
+          A New Beginning: The Story of a Syrian Boy`s Journey to Safety
         </h1>
       </div>
       <div className="flex flex-col justify-center items-center text-left md:w-1/2 text-sm text-gray-400">
         <p>
-        In war-torn Syria, the life of a young boy named Ahmad was turned upside down. His home was destroyed, and he was forced to flee with his family for his life. After a perilous journey, they finally reached a refugee camp in Lebanon. Life in the camp was difficult, with limited resources and little hope for the future.
-        But Ahmad never gave up hope. He knew that he needed to keep moving forward, to find a safe place to rebuild his life. He spent his days in the camp helping his family and learning new skills, such as learning English and fixing bikes.
-        And, after years of waiting, Ahmad and his family were finally granted asylum in the United States.
-        Upon arrival, Ahmad faced new challenges, such as learning a new language and navigating a new culture. But with the help of local organizations and volunteers, he was able to enroll in school and find a job. He quickly made friends, and started to feel like he belonged.
+          In war-torn Syria, the life of a young boy named Ahmad was turned
+          upside down. His home was destroyed, and he was forced to flee with
+          his family for his life. After a perilous journey, they finally
+          reached a refugee camp in Lebanon. Life in the camp was difficult,
+          with limited resources and little hope for the future. But Ahmad never
+          gave up hope. He knew that he needed to keep moving forward, to find a
+          safe place to rebuild his life. He spent his days in the camp helping
+          his family and learning new skills, such as learning English and
+          fixing bikes. And, after years of waiting, Ahmad and his family were
+          finally granted asylum in the United States. Upon arrival, Ahmad faced
+          new challenges, such as learning a new language and navigating a new
+          culture. But with the help of local organizations and volunteers, he
+          was able to enroll in school and find a job. He quickly made friends,
+          and started to feel like he belonged.
         </p>
       </div>
       <div>

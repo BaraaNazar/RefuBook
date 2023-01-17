@@ -13,6 +13,10 @@ import db, { auth } from '../../Firebase/firebase';
 import { signUp } from '../../Features/signUpSlice';
 
 const index = () => {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = today.getMonth() + 1;
+  const dd = today.getDate();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.signup);
@@ -36,10 +40,10 @@ const index = () => {
 
   // console.log(userRef);
 
-  const signUpWithGoogle = async (e) => {
+  const signUpWithGoogle = (e) => {
     e.preventDefault();
 
-    await signInWithPopup(auth, googleProvider).then((userAuth) => {
+    signInWithPopup(auth, googleProvider).then((userAuth) => {
       dispatch(
         signUp({
           userId: userAuth.user.uid,
@@ -47,7 +51,8 @@ const index = () => {
           email: userAuth.user.email,
           friends: [],
           jobtitle: '',
-          joinedDate: '',
+          // eslint-disable-next-line
+          joinedDate: dd + '/' + mm + '/' + yyyy,
           location: '',
           name: userAuth.user.displayName,
           profilePicture: userAuth.user.photoURL,
@@ -75,17 +80,19 @@ const index = () => {
     navigate(path);
   };
 
-  const signUpWithFacebook = async (e) => {
+  const signUpWithFacebook = (e) => {
     e.preventDefault();
 
-    await signInWithPopup(auth, facebookProvider).then((userAuth) => {
+    signInWithPopup(auth, facebookProvider).then((userAuth) => {
       dispatch(
         signUp({
           userId: userAuth.user.uid,
+          surename: '',
           email: userAuth.user.email,
           friends: [],
           jobtitle: '',
-          joinedDate: '',
+          // eslint-disable-next-line
+          joinedDate: dd + '/' + mm + '/' + yyyy,
           location: '',
           name: userAuth.user.displayName,
           profilePicture: userAuth.user.photoURL,
