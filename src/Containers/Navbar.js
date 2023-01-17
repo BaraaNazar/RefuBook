@@ -135,7 +135,7 @@ function Navbar() {
           <ul className="flex flex-col items-center p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 ">
             <li>
               <NavLink
-                to="/home"
+                to="/"
                 className="hover:underline block py-2 pl-3 pr-4 text-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                 aria-current="page"
               >
@@ -168,7 +168,7 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                to="/Chat"
+                to="/ChatsAll"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Chat

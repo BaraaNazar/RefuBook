@@ -1,24 +1,14 @@
 import React, { useState } from 'react';
-// import {onAuthStateChanged} from "firebase/auth"
 import { addDoc, serverTimestamp, collection } from 'firebase/firestore';
 import db from '../../Firebase/firebase';
 
 function Input() {
   const [input, setInput] = useState('');
-  // const [user, setUser]= useState({})
-  //  onAuthStateChanged(auth, async (currentUser) => {
-  //     if(currentUser){
-  //         await setUser(currentUser)
-  //     }
 
-  // })
-  // const userName = user.displayName
-  // const uid = {...user.uid}
   async function sendMessage() {
     await addDoc(collection(db, 'messages'), {
       text: input,
-      // name: userName,
-      // userUid: uid,
+
       timestamp: serverTimestamp(),
     });
     setInput('');
@@ -85,12 +75,11 @@ function Input() {
       <div className="ml-4">
         <button
           type="submit"
-          className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white px-4 py-1 flex-shrink-0"
+          className="flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 rounded-xl text-white p-2 text-center flex-shrink-0"
         >
-          <span>Send</span>
           <span className="ml-2">
             <svg
-              className="w-4 h-4 transform rotate-45 -mt-px"
+              className="w-5 h-5 transform rotate-45 -mt-px text-center justify-center flex"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
