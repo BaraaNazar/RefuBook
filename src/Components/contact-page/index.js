@@ -33,7 +33,7 @@ function Contacts() {
           <h1 className=" sm:text-left text-center sm:mx-auto md:pt-16  font-bold text-3xl sm:text-5xl text-[#4699C2]">
             Get in Touch
           </h1>
-          <p className=" md:pt-5 text-[#8B8F9C] sm:text-justify text-center md:w-[50%]">
+          <p className=" md:pt-5 text-[#8B8F9C] text-center  sm:text-start md:w-[60%]">
             But Brooke Chaffin and Catherine Connors are looking to change that
             with the introduction.
           </p>
@@ -43,7 +43,8 @@ function Contacts() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="hello@gmail.com"
-              className="md:w-[450px] h-[50px] sm:h-[50px] rounded-md text-left "
+              className="md:w-[450px] h-[50px] sm:h-[50px] rounded-md text-left  pl-2 "
+              required
             />
             <textarea
               value={message}
@@ -51,11 +52,12 @@ function Contacts() {
               type="text"
               placeholder="Your Message"
               aria-label="disabled input"
-              className="rounded-md block placeholder-pl-10 min-h-[160px] max-h-[160px] md:min-h-[199px]  md:max-h-[200px] md:w-[450px] mt-3"
+              className="rounded-md block placeholder-pl-10 min-h-[160px] max-h-[160px] md:min-h-[199px]  md:max-h-[200px] md:w-[450px] mt-3  pl-2"
+              required
             />
             <button
               type="submit"
-              className="bg-[#4699C2] mx-auto rounded-[1009px] mt-1 md:ml-3 md:mt-1 text-white w-[125px] h-[40px]"
+              className="bg-[#4699C2] mx-auto rounded-[1009px] mt-2 md:ml-1 md:mt-2 text-white w-[125px] h-[40px]"
             >
               Send
             </button>
@@ -69,7 +71,7 @@ function Contacts() {
         <div className=" md:pt-12">
           <img
             src={contactImage}
-            className="mx-auto my-auto   w-[300px] h-[190px] sm:w-[300px] sm:h-[100%] lg:w-[550px]  lg:h-[400px]"
+            className="mx-auto my-auto w-[300px] h-[300px] sm:w-[300px] sm:h-[350px] lg:w-[550px] lg:h-[450px]"
             alt=""
           />
         </div>
@@ -81,3 +83,5 @@ function Contacts() {
 }
 
 export default Contacts;
+
+
