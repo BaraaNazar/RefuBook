@@ -286,10 +286,12 @@ const index = () => {
                   <input
                     onChange={displayNameHandler}
                     placeholder={user.name}
+                    value={user.name}
                     name="name"
                     id="name"
                     type="text"
                     className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
+                    required
                   />
                 </label>
 
@@ -301,10 +303,12 @@ const index = () => {
                   <input
                     onChange={sureNamehandler}
                     placeholder={user.surename}
+                    value={user.surename}
                     name="surename"
                     id="surename"
                     type="text"
                     className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
+                    required
                   />
                 </label>
 
@@ -315,11 +319,13 @@ const index = () => {
                   Biography
                   <input
                     onChange={jobTitlehandler}
+                    value={user.jobtitle}
                     placeholder={user.jobtitle}
                     name="jobtitle"
                     id="biography"
                     type="text"
                     className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
+                    required
                   />
                 </label>
 
@@ -331,10 +337,12 @@ const index = () => {
                   <input
                     onChange={locationhandler}
                     placeholder={user.location}
+                    value={user.location}
                     name="location"
                     id="location"
                     type="text"
                     className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
+                    required
                   />
                 </label>
 
