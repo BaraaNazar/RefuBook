@@ -58,10 +58,7 @@ const CARD_DATA = [
 const index = () => {
   const [userRef, setUserRef] = useState([]);
   const [loggedUserId, setLoggedUserId] = useState('');
-  const [loggedSureName, setLoggedSureName] = useState('');
-  const [loggedJobtitle, setLoggedJobtitle] = useState('');
-  const [loggedLocation, setLoggedLocation] = useState('');
-  const [loggedDisplayName, setLoggedDisplayName] = useState('');
+
   const { user } = useSelector((state) => state.signup);
   const dispatch = useDispatch();
 
@@ -126,19 +123,16 @@ const index = () => {
     const keyName = event.target.name;
     // eslint-disable-next-line
     const value = event.target.value;
-    setLoggedDisplayName((prev) => {
-      return { ...prev, [keyName]: value };
-    });
 
     dispatch(
       signUp({
         userId: user.userId,
-        surename: loggedSureName.surename,
+        surename: user.surename,
         email: user.email,
         friends: [],
-        jobtitle: loggedJobtitle.jobtitle,
+        jobtitle: user.jobtitle,
         joinedDate: '',
-        location: loggedLocation.location,
+        location: user.location,
         [keyName]: value,
         profilePicture: user.profilePicture,
         skills: [],
@@ -149,9 +143,6 @@ const index = () => {
     const keyName = event.target.name;
     // eslint-disable-next-line
     const value = event.target.value;
-    setLoggedSureName((prev) => {
-      return { ...prev, [keyName]: value };
-    });
 
     dispatch(
       signUp({
@@ -159,10 +150,10 @@ const index = () => {
         [keyName]: value,
         email: user.email,
         friends: [],
-        jobtitle: loggedJobtitle.jobtitle,
+        jobtitle: user.jobtitle,
         joinedDate: '',
-        location: loggedLocation.location,
-        name: loggedDisplayName.name,
+        location: user.location,
+        name: user.name,
         profilePicture: user.profilePicture,
         skills: [],
       })
@@ -172,19 +163,17 @@ const index = () => {
     const keyName = event.target.name;
     // eslint-disable-next-line
     const value = event.target.value;
-    setLoggedJobtitle((prev) => {
-      return { ...prev, [keyName]: value };
-    });
+
     dispatch(
       signUp({
         userId: user.userId,
-        surename: loggedSureName.surename,
+        surename: user.surename,
         email: user.email,
         friends: [],
         [keyName]: value,
         joinedDate: '',
-        location: loggedLocation.location,
-        name: loggedDisplayName.name,
+        location: user.location,
+        name: user.name,
         profilePicture: user.profilePicture,
         skills: [],
       })
@@ -194,20 +183,17 @@ const index = () => {
     const keyName = event.target.name;
     // eslint-disable-next-line
     const value = event.target.value;
-    setLoggedLocation((prev) => {
-      return { ...prev, [keyName]: value };
-    });
 
     dispatch(
       signUp({
         userId: user.userId,
-        surename: loggedSureName.surename,
+        surename: user.surename,
         email: user.email,
         friends: [],
-        jobtitle: loggedJobtitle.jobtitle,
+        jobtitle: user.jobtitle,
         joinedDate: '',
         [keyName]: value,
-        name: loggedDisplayName.name,
+        name: user.name,
         profilePicture: user.profilePicture,
         skills: [],
       })
