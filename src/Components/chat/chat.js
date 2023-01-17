@@ -13,7 +13,7 @@ import RandomQuotes from './randomQuotes';
 function Chat() {
   const [user] = useAuthState(auth);
   return (
-    <div className='m-5'>
+    <div className="m-5">
       {user ? (
         <div>
           <div className="flex h-screen text-gray-800">
@@ -26,28 +26,27 @@ function Chat() {
               </div>
             </div>
             <div className="flex flex-col flex-auto h-fit p-6">
-              <div className='md:h-1/2'>
-              <div className="flex flex-col justify-between flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-96 p-4">
-                <div className="overflow-y-auto">
-                  <Messages />
+              <div className="md:h-1/2">
+                <div className="flex flex-col justify-between flex-auto flex-shrink-0 rounded-2xl bg-gray-100 h-96 p-4">
+                  <div className="overflow-y-auto">
+                    <Messages />
+                  </div>
+                  <div>
+                    <Input />
+                  </div>
                 </div>
-                <div>
-                  <Input />
+                <div className="hidden md:block">
+                  <RandomQuotes />
                 </div>
               </div>
-              <div className='hidden md:block'>
-              <RandomQuotes/>
-              </div>
-              </div>
-              <div className='md:hidden flex flex-col'>
+              <div className="md:hidden flex flex-col">
                 <User />
                 <Search />
-                <div className='block md:hidden'>
-              <RandomQuotes/>
-              </div>
-                <ActiveConversations />
-
+                <div className="block md:hidden">
+                  <RandomQuotes />
                 </div>
+                <ActiveConversations />
+              </div>
             </div>
           </div>
         </div>
