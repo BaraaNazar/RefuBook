@@ -1,34 +1,119 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
-// import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 import {
   GoogleAuthProvider,
   signInWithPopup,
   FacebookAuthProvider,
 } from 'firebase/auth';
+import { addDoc, collection, onSnapshot } from 'firebase/firestore';
 import NavBar from '../../Containers/Navbar';
-import { auth } from '../../Firebase/firebase';
-// import { signIn } from '../../Features/signUpSlice';
+import db, { auth } from '../../Firebase/firebase';
+import { signUp } from '../../Features/signUpSlice';
 
 const index = () => {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = today.getMonth() + 1;
+  const dd = today.getDate();
   const navigate = useNavigate();
-
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.signup);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
+  const [userRef, setUserRef] = useState([]);
 
-  const logInWithGoogle = (e) => {
+  useEffect(() => {
+    onSnapshot(collection(db, 'Users'), (snapshot) => {
+      snapshot.docChanges().forEach((docChange) => {
+        const userIDD = docChange.doc.id;
+        const userEmail = docChange.doc.data().user.email;
+        const userObj = { ...docChange.doc.data(), userIDD, userEmail };
+        // console.log(docChange.doc.data().user.email)
+        setUserRef((prevUSerRef) => [...prevUSerRef, userObj]);
+      });
+    });
+  }, []);
+
+  // eslint-disable-next-line
+
+  // console.log(userRef);
+
+  const signUpWithGoogle = async (e) => {
     e.preventDefault();
 
-    signInWithPopup(auth, googleProvider);
+    await signInWithPopup(auth, googleProvider).then((userAuth) => {
+      dispatch(
+        signUp({
+          userId: userAuth.user.uid,
+          surename: '',
+          email: userAuth.user.email,
+          friends: [],
+          jobtitle: '',
+          // eslint-disable-next-line
+          joinedDate: dd + '/' + mm + '/' + yyyy,
+          location: '',
+          name: userAuth.user.displayName,
+          profilePicture: userAuth.user.photoURL,
+          skills: [],
+        })
+      );
+
+      if (
+        userRef.some(
+          (singleUser) => userAuth.user.email === singleUser.userEmail
+        )
+      ) {
+        // eslint-disable-next-line
+        console.log('signed in successfully ');
+      } else {
+        // eslint-disable-next-line
+        console.log('signed Up successfully');
+        addDoc(collection(db, 'Users'), {
+          user,
+        });
+      }
+    });
 
     const path = `/user-profile`;
     navigate(path);
   };
 
-  const logInWithFacebook = (e) => {
+  const signUpWithFacebook = async (e) => {
     e.preventDefault();
 
-    signInWithPopup(auth, facebookProvider);
+    await signInWithPopup(auth, facebookProvider).then((userAuth) => {
+      dispatch(
+        signUp({
+          userId: userAuth.user.uid,
+          surename: '',
+          email: userAuth.user.email,
+          friends: [],
+          jobtitle: '',
+          // eslint-disable-next-line
+          joinedDate: dd + '/' + mm + '/' + yyyy,
+          location: '',
+          name: userAuth.user.displayName,
+          profilePicture: userAuth.user.photoURL,
+          skills: [],
+        })
+      );
+      if (
+        userRef.some(
+          (singleUser) => userAuth.user.email === singleUser.userEmail
+        )
+      ) {
+        // eslint-disable-next-line
+        console.log('already signed Up');
+      } else {
+        // eslint-disable-next-line
+        console.log('signed Up successfully');
+        addDoc(collection(db, 'Users'), {
+          user,
+        });
+      }
+    });
 
     const path = `/user-profile`;
     navigate(path);
@@ -56,7 +141,7 @@ const index = () => {
               <button
                 className="bg-[#EB5757] xl:w-2/5 h-12 rounded-6xl flex items-center justify-center"
                 type="button"
-                onClick={logInWithGoogle}
+                onClick={signUpWithGoogle}
               >
                 <FaGoogle color="white" className="text-2xl xl:text-3xl" />
               </button>
@@ -66,7 +151,7 @@ const index = () => {
               <button
                 className="bg-[#2F80ED] xl:w-2/5 h-12 rounded-6xl flex items-center justify-center"
                 type="button"
-                onClick={logInWithFacebook}
+                onClick={signUpWithFacebook}
               >
                 <FaFacebookF color="white" className="text-2xl xl:text-3xl" />
               </button>

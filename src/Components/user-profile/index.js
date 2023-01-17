@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { MdOutlineEdit } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { onAuthStateChanged } from 'firebase/auth';
 import db, { auth } from '../../Firebase/firebase';
 import Avatar from '../../images/male-avatar.png';
 import Card from './Card';
 import LoggedInNavbar from '../../Containers/LoggedInNavbar';
-import { signedIn } from '../../Features/signedInUserSlice';
+import { signUp } from '../../Features/signUpSlice';
 
 const CARD_DATA = [
   {
@@ -57,8 +57,12 @@ const CARD_DATA = [
 
 const index = () => {
   const [userRef, setUserRef] = useState([]);
-  const { loggedInUser } = useSelector((state) => state.signedin);
-
+  const [loggedUserId, setLoggedUserId] = useState('');
+  const [loggedSureName, setLoggedSureName] = useState('');
+  const [loggedJobtitle, setLoggedJobtitle] = useState('');
+  const [loggedLocation, setLoggedLocation] = useState('');
+  const [loggedDisplayName, setLoggedDisplayName] = useState('');
+  const { user } = useSelector((state) => state.signup);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -67,19 +71,16 @@ const index = () => {
         const userIDD = docChange.doc.id;
         const userEmail = docChange.doc.data().user.email;
         const userObj = { ...docChange.doc.data(), userIDD, userEmail };
-        // console.log(docChange.doc.data().user.email)
         setUserRef((prevUSerRef) => [...prevUSerRef, userObj]);
       });
     });
-
-    // break
   }, []);
-
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       userRef.map((signedUser) => {
         if (currentUser.email === signedUser.userEmail) {
-          dispatch(signedIn(signedUser.user));
+          setLoggedUserId(signedUser.userIDD);
+          dispatch(signUp(signedUser.user));
         }
         return true;
       });
@@ -121,6 +122,102 @@ const index = () => {
 
     setIsEditMode(false);
   };
+  const displayNameHandler = (event) => {
+    const keyName = event.target.name;
+    // eslint-disable-next-line
+    const value = event.target.value;
+    setLoggedDisplayName((prev) => {
+      return { ...prev, [keyName]: value };
+    });
+
+    dispatch(
+      signUp({
+        userId: user.userId,
+        surename: loggedSureName.surename,
+        email: user.email,
+        friends: [],
+        jobtitle: loggedJobtitle.jobtitle,
+        joinedDate: '',
+        location: loggedLocation.location,
+        [keyName]: value,
+        profilePicture: user.profilePicture,
+        skills: [],
+      })
+    );
+  };
+  const sureNamehandler = (event) => {
+    const keyName = event.target.name;
+    // eslint-disable-next-line
+    const value = event.target.value;
+    setLoggedSureName((prev) => {
+      return { ...prev, [keyName]: value };
+    });
+
+    dispatch(
+      signUp({
+        userId: user.userId,
+        [keyName]: value,
+        email: user.email,
+        friends: [],
+        jobtitle: loggedJobtitle.jobtitle,
+        joinedDate: '',
+        location: loggedLocation.location,
+        name: loggedDisplayName.name,
+        profilePicture: user.profilePicture,
+        skills: [],
+      })
+    );
+  };
+  const jobTitlehandler = (event) => {
+    const keyName = event.target.name;
+    // eslint-disable-next-line
+    const value = event.target.value;
+    setLoggedJobtitle((prev) => {
+      return { ...prev, [keyName]: value };
+    });
+    dispatch(
+      signUp({
+        userId: user.userId,
+        surename: loggedSureName.surename,
+        email: user.email,
+        friends: [],
+        [keyName]: value,
+        joinedDate: '',
+        location: loggedLocation.location,
+        name: loggedDisplayName.name,
+        profilePicture: user.profilePicture,
+        skills: [],
+      })
+    );
+  };
+  const locationhandler = (event) => {
+    const keyName = event.target.name;
+    // eslint-disable-next-line
+    const value = event.target.value;
+    setLoggedLocation((prev) => {
+      return { ...prev, [keyName]: value };
+    });
+
+    dispatch(
+      signUp({
+        userId: user.userId,
+        surename: loggedSureName.surename,
+        email: user.email,
+        friends: [],
+        jobtitle: loggedJobtitle.jobtitle,
+        joinedDate: '',
+        [keyName]: value,
+        name: loggedDisplayName.name,
+        profilePicture: user.profilePicture,
+        skills: [],
+      })
+    );
+  };
+  const onSaveClick = () => {
+    updateDoc(doc(db, 'Users', loggedUserId), {
+      user,
+    });
+  };
 
   return (
     <div
@@ -144,7 +241,7 @@ const index = () => {
                 className=" rounded-[50%]"
                 width={screenWidth > 1280 ? 130 : 100}
                 height={screenWidth > 1280 ? 130 : 100}
-                src={loggedInUser.profilePicture}
+                src={user.profilePicture}
                 alt="profilePic"
               />
 
@@ -172,7 +269,7 @@ const index = () => {
                 className="text-base leading-6 font-medium"
                 data-testid="username"
               >
-                {loggedInUser.name}
+                {user.name}
               </h3>
             </div>
 
@@ -187,7 +284,8 @@ const index = () => {
                 >
                   Name
                   <input
-                    placeholder={loggedInUser.name}
+                    onChange={displayNameHandler}
+                    placeholder={user.name}
                     name="name"
                     id="name"
                     type="text"
@@ -201,7 +299,8 @@ const index = () => {
                 >
                   surename
                   <input
-                    placeholder={loggedInUser.surename}
+                    onChange={sureNamehandler}
+                    placeholder={user.surename}
                     name="surename"
                     id="surename"
                     type="text"
@@ -215,8 +314,9 @@ const index = () => {
                 >
                   Biography
                   <input
-                    placeholder={loggedInUser.jobtitle}
-                    name="biography"
+                    onChange={jobTitlehandler}
+                    placeholder={user.jobtitle}
+                    name="jobtitle"
                     id="biography"
                     type="text"
                     className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
@@ -229,7 +329,8 @@ const index = () => {
                 >
                   Location
                   <input
-                    placeholder={loggedInUser.location}
+                    onChange={locationhandler}
+                    placeholder={user.location}
                     name="location"
                     id="location"
                     type="text"
@@ -239,6 +340,7 @@ const index = () => {
 
                 <div className="col-span-full flex justify-center gap-6 xl:mt-2">
                   <button
+                    onClick={onSaveClick}
                     type="submit"
                     className="xl:text-lg font-semibold xl:font-bold leading-5 text-white bg-refubook-blue border border-refubook-blue px-3 xl:px-6 py-1.5 xl:py-3 rounded-6xl"
                   >

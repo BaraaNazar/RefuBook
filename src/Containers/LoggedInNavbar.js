@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
+import {  useSelector } from 'react-redux';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
 import { signOut } from 'firebase/auth';
 import { auth } from '../Firebase/firebase';
-import Avatar from '../images/male-avatar.png';
 import Logo from '../images/RefuBook-Logo.png';
 
 function LoggedInNavbar() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  const { user } = useSelector((state) => state.signup);
 
   const toggleNavbar = () => {
     setIsNavbarOpen((prev) => !prev);
@@ -59,12 +60,12 @@ function LoggedInNavbar() {
               isNavbarOpen ? 'flex' : 'hidden'
             }`}
           >
-            <img width={130} height={130} src={Avatar} alt="Avatar" />
+            <img width={130} height={130} src={user.profilePicture} alt="Avatar" />
 
             <div className="absolute right-[30%] bottom-8 w-7 h-7 border-4 border-white bg-[#F46363] rounded-full p-1" />
 
             <h3 className="text-lg leading-6 font-medium text-[#3F3B3B]">
-              Svyatoslav Taushev
+           {user.name}
             </h3>
           </div>
 
