@@ -8,22 +8,22 @@ function OurPartners() {
       <h1 className="text-3xl font-bold text-blue-900">Partners</h1>
       <Carousel itemsToShow={4} showArrows={false} enableAutoPlay>
         <div>
-          <img className='p-5' src={img} alt="partner img" />
+          <img className="p-5" src={img} alt="partner img" />
         </div>
         <div>
-          <img className='p-5' src={img} alt="partner img" />
+          <img className="p-5" src={img} alt="partner img" />
         </div>
         <div>
-          <img className='p-5' src={img} alt="partner img" />
+          <img className="p-5" src={img} alt="partner img" />
         </div>
         <div>
-          <img className='p-5' src={img} alt="partner img" />
+          <img className="p-5" src={img} alt="partner img" />
         </div>
         <div>
-          <img className='p-5' src={img} alt="partner img" />
+          <img className="p-5" src={img} alt="partner img" />
         </div>
         <div>
-          <img className='p-5' src={img} alt="partner img" />
+          <img className="p-5" src={img} alt="partner img" />
         </div>
       </Carousel>
     </div>

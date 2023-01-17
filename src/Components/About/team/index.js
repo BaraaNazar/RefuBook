@@ -51,7 +51,6 @@ function Team() {
             </button>
           </div>
           <div className="flex flex-col justify-left text-center items-center space-y-5 text-blue-900 p-5">
-            
             {employees
               .filter((item) =>
                 selectedCountry !== 'All'
