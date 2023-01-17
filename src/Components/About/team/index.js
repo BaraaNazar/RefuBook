@@ -28,18 +28,18 @@ function Team() {
             <button
               className="bg-slate-500 text-sm md:text-base text-white py-1.5 px-5 rounded-2xl text-center mx-auto md:bg-cyan-50 md:text-black m-2 md:m-auto"
               onClick={handleSelectChange}
-              value="USA"
+              value="Iraq"
               type="button"
             >
-              USA
+              Iraq
             </button>
             <button
               className="bg-slate-500 text-sm md:text-base text-white py-1.5 px-5 rounded-2xl text-center mx-auto md:bg-cyan-50 md:text-black m-2 md:m-auto"
               onClick={handleSelectChange}
-              value="Turkey"
+              value="Kurdistan-Iraq"
               type="button"
             >
-              Turkey
+              Kurdistan-Iraq
             </button>
             <button
               className="bg-slate-500 text-sm md:text-base text-white py-1.5 px-5 rounded-2xl text-center mx-auto md:bg-cyan-50 md:text-black m-2 md:m-auto"
@@ -50,7 +50,8 @@ function Team() {
               Lebanon
             </button>
           </div>
-          <div className="grid grid-cols-2 gap-16 md:grid-cols-3 md:gap-36 text-blue-900 text-left p-5">
+          <div className="flex flex-col justify-left text-center items-center space-y-5 text-blue-900 p-5">
+            
             {employees
               .filter((item) =>
                 selectedCountry !== 'All'

@@ -13,54 +13,46 @@ function Testimonial() {
         <Carousel showArrows={false} itemPosition={consts.END} itemsToShow={1}>
           <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-              Two lines of a short testimonial from someone want to say
-              something, and can say more to explain.
+            As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.
             </p>
             <div>
-              <h3 title="Header" className="text-gray-500">
-                Louis Li,
+              <h3 title="Header" className="text-gray-300">
+                Omer Ali,
               </h3>
-              <h3 className="text-gray-500">Trainer at Recoded</h3>
+              <h3 className="text-gray-300">Anbar</h3>
             </div>
           </div>
-          <div className="flex flex-col justify-self-end space-y-4 text-center">
+          <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-              Two lines of a short testimonial from someone want to say
-              something, and can say more to explain.
+            Despite the challenges I have faced, I am grateful for the opportunities and support that have helped me rebuild my life and find hope for the future.
             </p>
             <div>
-              <h3 className="text-gray-500">Louis Li,</h3>
-              <h3 className="text-gray-500">Trainer at Recoded</h3>
+              <h3 title="Header" className="text-gray-300">
+              Mohammed Al-ani,
+              </h3>
+              <h3 className="text-gray-300">Musel</h3>
             </div>
           </div>
-          <div className="flex flex-col justify-self-end space-y-4 text-center">
+          <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-              Two lines of a short testimonial from someone want to say
-              something, and can say more to explain.
+            As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.
             </p>
             <div>
-              <h3 className="text-gray-500">Louis Li,</h3>
-              <h3 className="text-gray-500">Trainer at Recoded</h3>
+              <h3 title="Header" className="text-gray-300">
+                Belal Barkat,
+              </h3>
+              <h3 className="text-gray-300">Halab</h3>
             </div>
           </div>
-          <div className="flex flex-col justify-self-end space-y-4 text-center">
+          <div className="flex flex-col justify-self-end space-y-4 text-center md:text-left">
             <p>
-              Two lines of a short testimonial from someone want to say
-              something, and can say more to explain.
+            As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.
             </p>
             <div>
-              <h3 className="text-gray-500">Louis Li,</h3>
-              <h3 className="text-gray-500">Trainer at Recoded</h3>
-            </div>
-          </div>
-          <div className="flex flex-col justify-self-end space-y-4 text-center">
-            <p>
-              Two lines of a short testimonial from someone want to say
-              something, and can say more to explain.
-            </p>
-            <div>
-              <h3 className="text-gray-500">Louis Li,</h3>
-              <h3 className="text-gray-500">Trainer at Recoded</h3>
+              <h3 title="Header" className="text-gray-300">
+                Alwaleed khalid,
+              </h3>
+              <h3 className="text-gray-300">Ghaza</h3>
             </div>
           </div>
         </Carousel>
