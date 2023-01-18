@@ -6,7 +6,6 @@ import Message from './message';
 
 function Messages() {
   const [user, setUser] = useState({});
-  console.log(user);
   onAuthStateChanged(auth, (currentUser) => {
     if (currentUser) {
       setUser(currentUser);
@@ -35,6 +34,7 @@ function Messages() {
                   profilePicture={message.photoURL}
                   key={message.id}
                   message={message}
+                  user={user}
                 />
               );
             })}
