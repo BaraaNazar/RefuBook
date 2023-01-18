@@ -13,7 +13,7 @@ import RandomQuotes from './randomQuotes';
 function Chat() {
   const [user] = useAuthState(auth);
   return (
-    <div className="m-5">
+    <div className="">
       {user ? (
         <div>
           <div className="flex h-screen text-gray-800">

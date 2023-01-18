@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
+// import { useSelector } from 'react-redux';
 import { auth } from '../Firebase/firebase';
 import Logo from '../images/RefuBook-Logo.png';
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [user, setUser] = useState({});
-
+        
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
