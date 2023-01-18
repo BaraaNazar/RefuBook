@@ -38,7 +38,9 @@ function Contacts() {
             with the introduction.
           </p>
           <form onSubmit={saveDoc} className="flex flex-col">
-            <p className="md:text-[10px] text-[#8B8F9C]  md:pt-3 mx-5 sm:mx-2 md:mx-1">Email</p>
+            <p className="md:text-[10px] text-[#8B8F9C]  md:pt-3 mx-5 sm:mx-2 md:mx-1">
+              Email
+            </p>
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -83,5 +85,3 @@ function Contacts() {
 }
 
 export default Contacts;
-
-

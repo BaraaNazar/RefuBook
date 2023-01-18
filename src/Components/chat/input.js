@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import { addDoc, serverTimestamp, collection } from 'firebase/firestore';
-import db from '../../Firebase/firebase';
+import db, { auth } from '../../Firebase/firebase';
 
 function Input() {
   const [input, setInput] = useState('');
-
   async function sendMessage() {
+    const { uid, photoURL } = auth.currentUser;
+
     await addDoc(collection(db, 'messages'), {
       text: input,
-
+      uid,
+      photoURL,
       timestamp: serverTimestamp(),
     });
     setInput('');
