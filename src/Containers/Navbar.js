@@ -8,7 +8,7 @@ import Logo from '../images/RefuBook-Logo.png';
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [user, setUser] = useState({});
-        
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
