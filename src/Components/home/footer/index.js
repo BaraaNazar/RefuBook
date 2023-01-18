@@ -6,7 +6,7 @@ function Footer() {
     <footer className="flex flex-col md:flex-row items-center justify-center md:justify-between flex-wrap bg-white p-2 lg:px-16">
       <div className="mx-auto xl:pr-8 mt-5 md:mt-1 mb-5 md:mb-1 flex justify-center items-center flex-shrink-0 text-white justify-center">
         <NavLink
-          to="/home"
+          to="/"
           className="flex  md:block md:w-auto tracking-tight "
         >
           <img src={Logo} className="h-6 mr-3 sm:h-9 " alt="Flowbite Logo" />
@@ -17,7 +17,7 @@ function Footer() {
         <ul className="flex justify-center">
           <li className="mr-6">
             <NavLink
-              to="/home"
+              to="/"
               className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-white rounded md:bg-transparent text-gray-700 md:p-0 dark:text-white md:hover:text-blue-700"
               aria-current="page"
             >
@@ -34,7 +34,7 @@ function Footer() {
           </li>
           <li className="mr-6">
             <NavLink
-              to="/blog"
+              to="/BlogPage"
               className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             >
               Blog
@@ -46,6 +46,14 @@ function Footer() {
               className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             >
               Contact
+            </NavLink>
+          </li>
+          <li className="mr-6">
+            <NavLink
+              to="/singleblog"
+              className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+            >
+             Single Blog
             </NavLink>
           </li>
         </ul>

@@ -10,6 +10,8 @@ import SignUp from './Containers/SignUp';
 import Contact from './Containers/ContactPage';
 import ChatsAll from './Containers/ChatsAll';
 import UserProfile from './Containers/UserProfile';
+import BlogPage from './Containers/BlogPage';
+import SingleblogPage from './Components/blog-page/single blog page';
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/user-profile" element={<UserProfile />} />
+        <Route path="/BlogPage" element={<BlogPage/>}/>
+        <Route path="/singleblog" element={<SingleblogPage/>}/>
+        
       </Routes>
       <Footer />
 
