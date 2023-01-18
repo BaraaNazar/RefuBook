@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import Chat from '../Components/chat/chat';
-import NavBar from './Navbar';
 import { auth } from '../Firebase/firebase';
+import LogIn from '../Components/login/index';
 
 function ChatsAll() {
   const [user, setUser] = useState({});
@@ -13,11 +13,6 @@ function ChatsAll() {
       }
     });
   }, []);
-  return (
-    <div>
-      {!user.displayName ? null : <NavBar />}
-      <Chat />
-    </div>
-  );
+  return <div>{!user.displayName ? <LogIn /> : <Chat />}</div>;
 }
 export default ChatsAll;

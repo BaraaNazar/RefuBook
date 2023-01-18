@@ -1,20 +1,20 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
 import User from './user';
 import ActiveConversations from './active-conversations';
 import Messages from './messages';
 import Input from './input';
 import './style.css';
 import Search from './search';
-import LogIn from '../../Containers/LogIn';
-import { auth } from '../../Firebase/firebase';
 import RandomQuotes from './randomQuotes';
+import Navbar from '../../Containers/Navbar';
 
 function Chat() {
-  const [user] = useAuthState(auth);
+
   return (
-    <div className="">
-      {user ? (
+   
+ 
+    <div className="m-5">
+    <Navbar/>
         <div>
           <div className="flex h-screen text-gray-800">
             <div className="md:flex md:flex-row md:h-screen md:overflow-x-hidden hidden">
@@ -50,10 +50,10 @@ function Chat() {
             </div>
           </div>
         </div>
-      ) : (
-        <LogIn />
-      )}
+      
+    
     </div>
+ 
   );
 }
 
