@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
-// import { useSelector } from 'react-redux';
 import { auth } from '../Firebase/firebase';
 import Logo from '../images/RefuBook-Logo.png';
 

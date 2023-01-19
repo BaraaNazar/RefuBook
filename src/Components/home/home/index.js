@@ -1,7 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../../Firebase/firebase';
 import homepagepic from './homepic.png';
 
 function HomeBody() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      }
+    });
+  }, []);
+
   return (
     <div className="flex flex-row space-x-0 mx-auto my-10 xl:my-0 md:my-8 px-4 md:px-16 xl:h-screen ">
       <div className=" bodycontainer flex justify-center items-center lg:flex-row flex-col-reverse mx-auto my-10 xl:my-0 md:my-8 px-4 md:px-16    items-start md:text-center space-between w-screen m-10 px-4 pt-4 ">
@@ -26,13 +39,28 @@ function HomeBody() {
             </p>
           </div>
           <div className="button text-left mt-10 ">
-            <button
-              type="button"
-              className=" signUp  justify-center block  mb-3  text-white bg-sky-600 rounded-full hover:underline font-bold py-1 px-4 "
-              href="/signUp"
-            >
-              Sign Up
-            </button>
+            {!user.displayName ? (
+              <NavLink to="/login">
+                <button
+                  type="button"
+                  className=" signUp  justify-center block  mb-3  text-white bg-sky-600 rounded-full hover:underline font-bold py-1 px-4 "
+                  href="/signUp"
+                >
+                  Sign Up
+                </button>
+              </NavLink>
+            ) : (
+              <NavLink to="/user-profile">
+                <button
+                  type="button"
+                  className=" signUp  justify-center block  mb-3  text-white bg-sky-600 rounded-full hover:underline font-bold py-1 px-4 "
+                  href="/user-profile"
+                  to="/user-profile"
+                >
+                  My Profile
+                </button>
+              </NavLink>
+            )}
           </div>
         </div>
 
