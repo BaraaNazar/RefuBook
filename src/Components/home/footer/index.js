@@ -92,7 +92,7 @@ function Footer() {
                         className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-6  rounded-full "
                         href="/signUp"
                       >
-                       {user.displayName}
+                        {user.displayName}
                       </button>
                     </NavLink>
                   )}

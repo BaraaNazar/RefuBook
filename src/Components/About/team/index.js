@@ -10,8 +10,8 @@ function Team() {
     setSelectedCountry(e.target.value);
   };
   return (
-    <div>
-      <div className="flex justify-center items-center text-center bg-cyan-50">
+    <div className='p-10 bg-cyan-50'>
+      <div className="flex justify-center items-center text-center ">
         <div className="flex flex-col justify-center items-center text-center md:w-1/2 sm:w-fit md:space-y-20">
           <h1 className="md:text-5xl font-bold capitalize text-blue-900 text-3xl m-5">
             Our Team
@@ -50,7 +50,7 @@ function Team() {
               Lebanon
             </button>
           </div>
-          <div className="flex flex-col justify-left text-center items-center space-y-5 text-blue-900 p-5">
+          <div className="flex flex-wrap md:flex-nowrap md:flex-row flex-col justify-left text-center items-center text-blue-900">
             {employees
               .filter((item) =>
                 selectedCountry !== 'All'
@@ -62,6 +62,7 @@ function Team() {
                   key={employee.id}
                   name={employee.name}
                   Role={employee.Role}
+                  img={employee.profilePhoto}
                 />
               ))}
           </div>
