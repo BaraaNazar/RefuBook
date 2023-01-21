@@ -1,11 +1,12 @@
 import { useState, useLayoutEffect } from 'react';
 import './style.css';
-import EmptyImage from './assets/EmptyImages.svg';
+import manHoldABook from '../../../images/young-man-stretching-hand-toward-book-white-t-shirt-jeans-looking-happy-front-view.jpg';
+import manWork from '../../../images/building-construction-worker-site-with-architect.jpg';
 
 const LATEST_STORIES = [
   {
     id: 1,
-    image: EmptyImage,
+    image: manHoldABook,
     content: {
       category: 'Language',
       title:
@@ -18,7 +19,7 @@ const LATEST_STORIES = [
   },
   {
     id: 2,
-    image: EmptyImage,
+    image: manWork,
     content: {
       category: 'Jobs',
       title:
