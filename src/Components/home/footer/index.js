@@ -1,14 +1,24 @@
+import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../../Firebase/firebase';
 import Logo from '../../../images/RefuBook-Logo.png';
 
 function Footer() {
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser(currentUser);
+      }
+    });
+  }, []);
+
   return (
     <footer className="flex flex-col md:flex-row items-center justify-center md:justify-between flex-wrap bg-white p-2 lg:px-16">
       <div className="mx-auto xl:pr-8 mt-5 md:mt-1 mb-5 md:mb-1 flex justify-center items-center flex-shrink-0 text-white justify-center">
-        <NavLink
-          to="/"
-          className="flex  md:block md:w-auto tracking-tight "
-        >
+        <NavLink to="/" className="flex  md:block md:w-auto tracking-tight ">
           <img src={Logo} className="h-6 mr-3 sm:h-9 " alt="Flowbite Logo" />
         </NavLink>
       </div>
@@ -53,7 +63,7 @@ function Footer() {
               to="/singleblog"
               className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
             >
-             Single Blog
+              Single Blog
             </NavLink>
           </li>
         </ul>
@@ -65,13 +75,27 @@ function Footer() {
             <div className="flex justify-between items-center mr-3 ml-3">
               <ul className="flex  items-center  p-4 mt-4  md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
                 <li>
-                  <button
-                    type="button"
-                    className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-6  rounded-full "
-                    href="/signUp"
-                  >
-                    Sign up
-                  </button>
+                  {!user.displayName ? (
+                    <NavLink to="/login">
+                      <button
+                        type="button"
+                        className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-6  rounded-full "
+                        href="/signUp"
+                      >
+                        Sign up
+                      </button>
+                    </NavLink>
+                  ) : (
+                    <NavLink to="/user-profile">
+                      <button
+                        type="button"
+                        className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-6  rounded-full "
+                        href="/signUp"
+                      >
+                       {user.displayName}
+                      </button>
+                    </NavLink>
+                  )}
                 </li>
                 <li>
                   <select
