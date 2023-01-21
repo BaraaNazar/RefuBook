@@ -27,7 +27,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/user-profile" element={<UserProfile />} />
         <Route path="/BlogPage" element={<BlogPage />} />
-        <Route path="/singleblog" element={<SingleblogPage />} />
+        <Route path="/BlogPage/singleblog" element={<SingleblogPage />} />
       </Routes>
       <Footer />
 
