@@ -10,7 +10,7 @@ function Team() {
     setSelectedCountry(e.target.value);
   };
   return (
-    <div className='p-10 bg-cyan-50'>
+    <div className="p-10 bg-cyan-50">
       <div className="flex justify-center items-center text-center ">
         <div className="flex flex-col justify-center items-center text-center md:w-1/2 sm:w-fit md:space-y-20">
           <h1 className="md:text-5xl font-bold capitalize text-blue-900 text-3xl m-5">
