@@ -2,7 +2,6 @@ import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import './App.css';
 import Home from './Containers/Home';
-import Footer from './Components/home/footer';
 import About from './Containers/About';
 import Login from './Containers/LogIn';
 import Layout from './Containers/Layout';
@@ -31,7 +30,7 @@ function App() {
         <Route path="/BlogPage" element={<BlogPage />} />
         <Route path="/singleblog" element={<SingleblogPage />} />
       </Routes>
-      <Footer />
+      
 
       <Outlet />
     </div>
