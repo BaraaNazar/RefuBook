@@ -1,147 +1,29 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
 import Carousel from 'react-elastic-carousel';
+import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../../../Containers/Navbar';
 import Cards from './blogcards';
-import blogpic from '../blogimg/blogimg.png';
-import emptyimg from '../blogimg/emptyblog.png';
+import db from '../../../Firebase/firebase';
+import { signedIn } from '../../../Features/signedInUserSlice';
 
 function Blog() {
-  const ArticleInfo = [
-    {
-      id: 1,
-      author: {
-        id: 1,
-        name: 'Bruce lee',
-        avatar: { blogpic },
-        profile: '',
-      },
-      title: '  Title Title Title Title Title Title  ',
-      subTitle:
-        'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-      image: { emptyimg },
-      body1:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body2:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body3:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-    },
-    {
-      id: 2,
-      author: {
-        id: 2,
-        name: 'Bruce lee2',
-        avatar: { blogpic },
-        profile: '',
-      },
-      title: '  Title Title Title Title Title Title  ',
-      subTitle:
-        'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-      image: { emptyimg },
-      body1:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body2:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body3:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-    },
-    {
-      id: 3,
-      author: {
-        id: 3,
-        name: 'Bruce lee3',
-        avatar: { blogpic },
-        profile: '',
-      },
-      title: '  Title Title Title Title Title Title  ',
-      subTitle:
-        'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-      image: { emptyimg },
-      body1:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body2:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body3:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-    },
-    {
-      id: 4,
-      author: {
-        id: 4,
-        name: 'Bruce lee4',
-        avatar: { blogpic },
-        profile: '',
-      },
-      title: '  Title Title Title Title Title Title  ',
-      subTitle:
-        'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-      image: { emptyimg },
-      body1:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body2:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body3:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-    },
-    {
-      id: 5,
-      author: {
-        id: 5,
-        name: 'Bruce lee5',
-        avatar: { blogpic },
-        profile: '',
-      },
-      title: '  Title Title Title Title Title Title  ',
-      subTitle:
-        'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-      image: { emptyimg },
-      body1:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body2:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body3:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-    },
-    {
-      id: 5,
-      author: {
-        id: 5,
-        name: 'Bruce lee',
-        avatar: { blogpic },
-        profile: '',
-      },
-      title: '  Title Title Title Title Title Title  ',
-      subTitle:
-        'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-      image: { emptyimg },
-      body1:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body2:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body3:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-    },
+  const dispatch = useDispatch();
+  const { article } = useSelector((state) => state.signedin);
 
-    {
-      id: 6,
-      author: {
-        id: 6,
-        name: 'Bruce lee',
-        avatar: { blogpic },
-        profile: '',
-      },
-      title: '  Title Title Title Title Title Title  ',
-      subTitle:
-        'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-      image: { emptyimg },
-      body1:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body2:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-      body3:
-        'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-    },
-  ];
+  // const [content, setContent] = useState([])
+  useEffect(() => {
+    async function fetchingData() {
+      const querySnapshot = await getDocs(collection(db, 'Posts'));
+      querySnapshot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        // setContent(doc.data().articleInfo);
+        dispatch(signedIn(doc.data().articleInfo));
+      });
+    }
+    fetchingData();
+  }, []);
 
   return (
     <div>
@@ -170,15 +52,19 @@ function Blog() {
               outerSpacing={0}
               className=" md:p-0 md:itemsToShow={1}"
             >
-              {ArticleInfo.map((articles) => (
-                <Cards articles={articles} />
+
+              {article.map((articleInfo) => (
+                <Cards articleInfo={articleInfo} />
+
               ))}
             </Carousel>
           </div>
 
           <div className="blog grid grid-cols-2 m-5  gap-3 md:grid-cols-4 md:justify-center ">
-            {ArticleInfo.map((articles) => (
-              <Cards articles={articles} />
+
+            {article.map((articleInfo) => (
+              <Cards articleInfo={articleInfo} />
+
             ))}
           </div>
         </div>
