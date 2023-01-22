@@ -5,55 +5,9 @@ import { collection, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { BsFillCameraFill } from 'react-icons/bs';
 import { onAuthStateChanged } from 'firebase/auth';
 import db, { auth } from '../../Firebase/firebase';
-import Avatar from '../../images/male-avatar.png';
 import Card from './Card';
 import LoggedInNavbar from '../../Containers/LoggedInNavbar';
 import { signUp } from '../../Features/signUpSlice';
-
-const CARD_DATA = [
-  {
-    id: 1,
-    title: 'Title 1',
-    description: 'Lorem ipsum dolor dsgsgs',
-    avatar: Avatar,
-    name: 'Bruce Lee',
-  },
-  {
-    id: 2,
-    title: 'Title 2',
-    description: 'Lorem ipsum dolor dsgsgs',
-    avatar: Avatar,
-    name: 'Bruce Lee',
-  },
-  {
-    id: 3,
-    title: 'Title 3',
-    description: 'Lorem ipsum dolor dsgsgs',
-    avatar: Avatar,
-    name: 'Bruce Lee',
-  },
-  {
-    id: 4,
-    title: 'Title 4',
-    description: 'Lorem ipsum dolor dsgsgs',
-    avatar: Avatar,
-    name: 'Bruce Lee',
-  },
-  {
-    id: 5,
-    title: 'Title 5',
-    description: 'Lorem ipsum dolor dsgsgs',
-    avatar: Avatar,
-    name: 'Bruce Lee',
-  },
-  {
-    id: 6,
-    title: 'Title 6',
-    description: 'Lorem ipsum dolor dsgsgs',
-    avatar: Avatar,
-    name: 'Bruce Lee',
-  },
-];
 
 const index = () => {
   const [userRef, setUserRef] = useState([]);
@@ -119,6 +73,7 @@ const index = () => {
 
     setIsEditMode(false);
   };
+
   const displayNameHandler = (event) => {
     const keyName = event.target.name;
     // eslint-disable-next-line
@@ -136,6 +91,7 @@ const index = () => {
         [keyName]: value,
         profilePicture: user.profilePicture,
         skills: [],
+        posts: user.posts,
       })
     );
   };
@@ -156,6 +112,7 @@ const index = () => {
         name: user.name,
         profilePicture: user.profilePicture,
         skills: [],
+        posts: user.posts,
       })
     );
   };
@@ -176,6 +133,7 @@ const index = () => {
         name: user.name,
         profilePicture: user.profilePicture,
         skills: [],
+        posts: user.posts,
       })
     );
   };
@@ -196,6 +154,7 @@ const index = () => {
         name: user.name,
         profilePicture: user.profilePicture,
         skills: [],
+        posts: user.posts,
       })
     );
   };
@@ -352,32 +311,36 @@ const index = () => {
             ) : (
               <>
                 <div className="grid xl:grid-cols-3 gap-x-10 gap-y-6 my-6 xl:my-10">
-                  {(screenWidth >= 1280
-                    ? CARD_DATA
-                    : CARD_DATA.slice(slideNum, slideNum + 2)
-                  ).map((card) => (
-                    <Card key={card.id} data={card} screenWidth={screenWidth} />
-                  ))}
+                  {!user.posts
+                    ? null
+                    : user.posts.map((card) => (
+                        <Card
+                          key={card.id}
+                          data={card}
+                          profilePicture={user.profilePicture}
+                          screenWidth={screenWidth}
+                        />
+                      ))}
                 </div>
 
                 <div className="flex items-center justify-center xl:justify-start gap-x-4">
-                  {[...Array(CARD_DATA.length / sliderTotalContent).keys()].map(
-                    (i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => toggleSlideNumber(i)}
-                      >
-                        <div
-                          className={`w-3 xl:w-4 h-3 xl:h-4 transform transition-all duration-300 ease-in-out ${
-                            slideNum / sliderTotalContent === i
-                              ? 'bg-refubook-blue'
-                              : 'bg-[#EAE6E6]'
-                          } rounded-full`}
-                        />
-                      </button>
-                    )
-                  )}
+                  {!user.posts
+                    ? null
+                    : user.posts.map((i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => toggleSlideNumber(i)}
+                        >
+                          <div
+                            className={`w-3 xl:w-4 h-3 xl:h-4 transform transition-all duration-300 ease-in-out ${
+                              slideNum / sliderTotalContent === i
+                                ? 'bg-refubook-blue'
+                                : 'bg-[#EAE6E6]'
+                            } rounded-full`}
+                          />
+                        </button>
+                      ))}
                 </div>
               </>
             )}
