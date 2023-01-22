@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from './Navbar';
+import Footer from "../Components/home/footer"
 import Testimonial from '../Components/home/testimonials';
 import OurPartners from '../Components/About/partners';
 import HeroImage from '../Components/About/hero-image';
@@ -19,6 +20,7 @@ function About() {
       </div>
       <OurPartners />
       <CallToAction />
+      <Footer/>
     </div>
   );
 }

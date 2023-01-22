@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import Carousel from 'react-elastic-carousel';
@@ -23,6 +24,7 @@ function Blog() {
     }
     fetchingData();
   }, []);
+
   return (
     <div>
       <NavBar />
@@ -50,15 +52,19 @@ function Blog() {
               outerSpacing={0}
               className=" md:p-0 md:itemsToShow={1}"
             >
+
               {article.map((articleInfo) => (
                 <Cards articleInfo={articleInfo} />
+
               ))}
             </Carousel>
           </div>
 
           <div className="blog grid grid-cols-2 m-5  gap-3 md:grid-cols-4 md:justify-center ">
+
             {article.map((articleInfo) => (
               <Cards articleInfo={articleInfo} />
+
             ))}
           </div>
         </div>

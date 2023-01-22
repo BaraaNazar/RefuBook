@@ -174,15 +174,23 @@ function Navbar() {
                 Chat
               </NavLink>
             </li>
-
-            <li>
-              <NavLink
-                to="/signup"
-                className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
-              >
-                Sign Up
-              </NavLink>
-            </li>
+            {!user.displayName ? (
+                <li>
+                  <NavLink
+                    to="/login"
+                    className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
+                  >
+                    Sign I  
+                  </NavLink>
+                </li>
+              ) : (
+                <NavLink
+                  to="/user-profile"
+                  className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
+                >
+                  {user.displayName}
+                </NavLink>
+              )}
           </ul>
         </div>
       ) : (
