@@ -1,6 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 import {
   GoogleAuthProvider,
@@ -19,7 +19,7 @@ const index = () => {
   const dd = today.getDate();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.signup);
+  // const { user } = useSelector((state) => state.signup);
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
   const [userRef, setUserRef] = useState([]);
@@ -57,6 +57,7 @@ const index = () => {
           name: userAuth.user.displayName,
           profilePicture: userAuth.user.photoURL,
           skills: [],
+          posts: [],
         })
       );
 
@@ -71,7 +72,20 @@ const index = () => {
         // eslint-disable-next-line
         console.log('signed Up successfully');
         addDoc(collection(db, 'Users'), {
-          user,
+          user: {
+            userId: userAuth.user.uid,
+            surename: '',
+            email: userAuth.user.email,
+            friends: [],
+            jobtitle: '',
+            // eslint-disable-next-line
+            joinedDate: dd + '/' + mm + '/' + yyyy,
+            location: '',
+            name: userAuth.user.displayName,
+            profilePicture: userAuth.user.photoURL,
+            skills: [],
+            posts: [],
+          },
         });
       }
     });
@@ -97,6 +111,7 @@ const index = () => {
           name: userAuth.user.displayName,
           profilePicture: userAuth.user.photoURL,
           skills: [],
+          posts: [],
         })
       );
       if (
@@ -110,7 +125,20 @@ const index = () => {
         // eslint-disable-next-line
         console.log('signed Up successfully');
         addDoc(collection(db, 'Users'), {
-          user,
+          user: {
+            userId: userAuth.user.uid,
+            surename: '',
+            email: userAuth.user.email,
+            friends: [],
+            jobtitle: '',
+            // eslint-disable-next-line
+            joinedDate: dd + '/' + mm + '/' + yyyy,
+            location: '',
+            name: userAuth.user.displayName,
+            profilePicture: userAuth.user.photoURL,
+            skills: [],
+            posts: [],
+          },
         });
       }
     });
