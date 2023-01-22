@@ -69,8 +69,8 @@ const WritePost = () => {
       },
     });
 
-    const path = `/user-profile`;
-    navigate(path);
+    // const path = `/user-profile`;
+    // navigate(path);
   };
   const onCancel = (e) => {
     e.preventDefault();
@@ -105,8 +105,9 @@ const WritePost = () => {
                 Title
                 <input
                   onChange={onChangeHandler}
+                  placeholder="Enter Your Post Title"
                   name="Title"
-                  id="name"
+                  id="Title"
                   type="text"
                   className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
                   required
@@ -119,9 +120,10 @@ const WritePost = () => {
               >
                 Name
                 <input
+                  placeholder="Enter Your Post Name"
                   onChange={onChangeHandler}
                   name="Name"
-                  id="surename"
+                  id="Name"
                   type="text"
                   className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
                   required
@@ -134,9 +136,10 @@ const WritePost = () => {
               >
                 Paragraph
                 <input
+                  placeholder="Enter Your Post Description"
                   onChange={onChangeHandler}
                   name="Paragraph"
-                  id="biography"
+                  id="Paragraph"
                   type="text"
                   className="border border-gray-500 bg-transparent rounded-[10px] h-9 xl:h-12"
                   required
