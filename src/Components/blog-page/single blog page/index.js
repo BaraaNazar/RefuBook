@@ -2,34 +2,16 @@ import React from 'react';
 import { ImFacebook, ImTwitter } from 'react-icons/im';
 import { FaInstagram } from 'react-icons/fa';
 import { AiOutlineShareAlt } from 'react-icons/ai';
+import { useSelector } from 'react-redux';
 import emptyimg from '../blogimg/emptyblog.png';
 import NavBar from '../../../Containers/Navbar';
 import blogpic from '../blogimg/blogimg.png';
 
-const ArticleInfo = {
-  id: 1,
-  author: {
-    id: 1,
-    name: 'Bruce lee',
-    avatar: { blogpic },
-    profile: '',
-  },
-  title: '  Title Title Title Title Title Title  ',
-  subTitle:
-    'subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle subTitle ',
-  image: { emptyimg },
-  body1:
-    'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-  body2:
-    'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dLorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum orem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-  body3:
-    'Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum Lorem ipsum dolor sitadad Lorem ipsum dolor sitadad Lorem ipsum dolor ',
-  date: 'Aug 18',
-  dateTime: '2015-05-16 19:00',
-};
 function SingleblogPage() {
+  const { article } = useSelector((state) => state.signedin);
+
   return (
-    <>
+    <div>
       <NavBar />
       <div className="grid grid-cols-1 lg:mx-20 xl:mx-40  mx-3 relative  xl:h-screen   ">
         <div className=" ">
@@ -38,7 +20,7 @@ function SingleblogPage() {
               <div className="grid grid-cols-2 justify-center pl-[200px]  md:grid md:grid-cols-1 lg:grid-cols-2 sm:grid sm:grid-cols-1">
                 <div className=" ">
                   <h1 className="text-center  text-xl font-bold pb-6">
-                    {ArticleInfo.title}
+                    {article.title}
                   </h1>
                   <div className="flex items-center p-2 justify-center content-center  ">
                     <div
@@ -81,7 +63,7 @@ function SingleblogPage() {
                         <img
                           className="w-8 h-8 rounded-full mr-2 "
                           src={blogpic}
-                          alt={`profile of ${ArticleInfo.author.name}`}
+                          alt={`profile of ${article.author.name}`}
                         />
                       </div>
                       <div>
@@ -98,16 +80,16 @@ function SingleblogPage() {
                     </div>
                     <div className="text-center  w-[539px] h-[60px] ">
                       <h2 className="pt-3 text-lg font-medium text-left pl-2">
-                        {ArticleInfo.subTitle}
+                        {article.subTitle}
                       </h2>
                       <p className="pt-3 text-sm leading-normal text-left pl-2  ">
-                        {ArticleInfo.body1}
+                        {article.body1}
                       </p>
                       <p className="pt-3 text-sm leading-normal text-left pl-2  ">
-                        {ArticleInfo.body2}
+                        {article.body2}
                       </p>
                       <p className="pt-3  pb-32 text-sm leading-normal  text-left pl-2 ">
-                        {ArticleInfo.body3}
+                        {article.body3}
                       </p>
                     </div>
                   </div>
@@ -121,10 +103,10 @@ function SingleblogPage() {
                     <img className="w-full" src={emptyimg} alt="emptypic" />
                     <div className="px-4 py-4 w-[225px]">
                       <div className="font-bold text-l  ">
-                        <p>{ArticleInfo.title.slice(0, 7)}</p>
+                        <p>{article.title.slice(0, 7)}</p>
                       </div>
                       <p className="text-gray-700 text-sm">
-                        {ArticleInfo.body1.slice(0, 24)}
+                        {article.body1.slice(0, 24)}
                       </p>
                     </div>
 
@@ -132,11 +114,11 @@ function SingleblogPage() {
                       <img
                         className="w-10 h-10 rounded-full mr-4 "
                         src={blogpic}
-                        alt={`Profile of ${ArticleInfo.author.name}`}
+                        alt={`Profile of ${article.author.name}`}
                       />
                       <div className="text-sm">
                         <p className=" text-sky-400 font-bold">
-                          {ArticleInfo.author.name}
+                          {article.author.name}
                         </p>
                       </div>
                     </div>
@@ -145,10 +127,10 @@ function SingleblogPage() {
                     <img className="w-full" src={emptyimg} alt="emptypic" />
                     <div className="px-4 py-4 w-[225px]">
                       <div className="font-bold text-l  ">
-                        <p>{ArticleInfo.title.slice(0, 7)}</p>
+                        <p>{article.title.slice(0, 7)}</p>
                       </div>
                       <p className="text-gray-700 text-base text-sm">
-                        {ArticleInfo.body1.slice(0, 24)}
+                        {article.body1.slice(0, 24)}
                       </p>
                     </div>
 
@@ -156,11 +138,11 @@ function SingleblogPage() {
                       <img
                         className="w-10 h-10 rounded-full mr-4 "
                         src={blogpic}
-                        alt={`Profile of ${ArticleInfo.author.name}`}
+                        alt={`Profile of ${article.author.name}`}
                       />
                       <div className="text-sm">
                         <p className=" text-sky-400 font-bold  ">
-                          {ArticleInfo.author.name}
+                          {article.author.name}
                         </p>
                       </div>
                     </div>
@@ -171,7 +153,7 @@ function SingleblogPage() {
           </article>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

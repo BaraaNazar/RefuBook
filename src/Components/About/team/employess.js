@@ -1,4 +1,5 @@
 import img from '../../../images/Baraa-Nazar.jpg';
+import HeyamMsri from '../../../images/heyamMsri.jpg';
 
 const employees = [
   {
@@ -37,7 +38,7 @@ const employees = [
     name: 'Heyam',
     country: 'Lebanon',
     Role: 'Front-end developer',
-    profilePhoto: 'https://avatars.githubusercontent.com/u/113636248?v=4',
+    profilePhoto: HeyamMsri,
   },
 ];
 
