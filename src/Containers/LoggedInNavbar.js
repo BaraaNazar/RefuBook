@@ -92,7 +92,7 @@ function LoggedInNavbar() {
             </NavLink>
 
             <NavLink
-              to="/Contact"
+              to="/Write-Post"
               className={({ isActive }) =>
                 `text-xl xl:text-lg block py-2 pl-3 pr-4 
                   font-bold no-underline order-1 xl:order-2

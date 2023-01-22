@@ -12,6 +12,7 @@ import ChatsAll from './Containers/ChatsAll';
 import UserProfile from './Containers/UserProfile';
 import BlogPage from './Containers/BlogPage';
 import SingleblogPage from './Components/blog-page/single blog page';
+import WritePost from './Components/Posts/WritePost';
 
 function App() {
   return (
@@ -23,11 +24,13 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/ChatsAll" element={<ChatsAll />} />
+        <Route path="/Write-Post" element={<WritePost />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/user-profile" element={<UserProfile />} />
-        <Route path="/BlogPage" element={<BlogPage />} />
-        <Route path="/BlogPage/singleblog" element={<SingleblogPage />} />
+        <Route path="/BlogPage" element={<BlogPage/>}/>
+        <Route path="/singleblog" element={<SingleblogPage/>}/>
+        
       </Routes>
       <Footer />
 
