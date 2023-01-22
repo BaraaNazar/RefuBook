@@ -100,7 +100,7 @@ function LoggedInNavbar() {
                   `
               }
             >
-            Post
+              Post
             </NavLink>
 
             <NavLink

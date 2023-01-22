@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Card = ({ data, screenWidth, profilePicture }) => {
-
   return (
     <div
       className="bg-white rounded-3xl shadow-custom-sm p-4"
