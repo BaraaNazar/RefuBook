@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Carousel from 'react-elastic-carousel'
 import Employee from './Employee';
 import employees from './employess';
 import './style.css';
@@ -50,7 +51,7 @@ function Team() {
               Lebanon
             </button>
           </div>
-          <div className="flex flex-wrap md:flex-nowrap md:flex-row flex-col justify-left text-center items-center text-blue-900">
+          <div className="md:flex md:flex-nowrap md:flex-row flex-col justify-left text-center items-center text-blue-900 hidden">
             {employees
               .filter((item) =>
                 selectedCountry !== 'All'
@@ -66,6 +67,27 @@ function Team() {
                 />
               ))}
           </div>
+          <div className='w-full md:hidden flex'>
+          <Carousel showArrows={false} enableAutoPlay>
+          
+          {employees
+              .filter((item) =>
+                selectedCountry !== 'All'
+                  ? item.country === selectedCountry
+                  : true
+              )
+              .map((employee) => (
+                <Employee
+                  key={employee.id}
+                  name={employee.name}
+                  Role={employee.Role}
+                  img={employee.profilePhoto}
+                />
+              ))}
+          
+          </Carousel>
+          </div>
+          
         </div>
       </div>
     </div>
