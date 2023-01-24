@@ -198,7 +198,7 @@ const index = () => {
             </button>
 
             <h3
-              className="text-base leading-6 font-medium"
+              className="text-base leading-6 font-medium text-center"
               data-testid="username"
             >
               {user.name}
