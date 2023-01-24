@@ -44,6 +44,23 @@ const index = () => {
     e.preventDefault();
 
     signInWithPopup(auth, googleProvider).then((userAuth) => {
+      
+      dispatch(
+        signUp({
+          userId: userAuth.user.uid,
+          surename: '',
+          email: userAuth.user.email,
+          friends: [],
+          jobtitle: '',
+          // eslint-disable-next-line
+          joinedDate: dd + '/' + mm + '/' + yyyy,
+          location: '',
+          name: userAuth.user.displayName,
+          profilePicture: userAuth.user.photoURL,
+          skills: [],
+          posts: [],
+        })
+      );
       if (
         userRef.some(
           (singleUser) => userAuth.user.email === singleUser.userEmail
