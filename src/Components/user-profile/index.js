@@ -165,7 +165,7 @@ const index = () => {
   };
 
   return (
-    <div className="min-h-screen xl:min-h-screen w-full  py-6 px-4 bg-white rounded-6xl shadow-custom-xl relative overflow-hidden">
+    <div className="min-h-screen xl:min-h-screen w-full  py-6 px-4 bg-white  shadow-custom-xl relative overflow-hidden">
       <div className="hidden xl:block absolute -left-48 -top-4 z-0 w-[800px] h-[650px] rounded-[1009px] bg-[#E5FAFF]" />
 
       <div className="xl:hidden absolute -left-16 -bottom-[40%] z-0 w-[500px] h-[500px] rounded-[1009px] bg-[#E5FAFF]" />
