@@ -16,7 +16,7 @@ function HomeBody() {
   }, []);
 
   return (
-    <div className="flex flex-row space-x-0 mx-auto my-10 xl:my-0 md:my-8 px-4 md:px-16 xl:h-screen ">
+    <div className="flex flex-row space-x-0 mx-auto my-10 xl:my-0 md:my-8 md:px-16 xl:h-screen ">
       <div className=" bodycontainer flex justify-center items-center lg:flex-row flex-col-reverse mx-auto my-10 xl:my-0 md:my-8 px-4 md:px-16    items-start md:text-center space-between w-screen m-10 px-4 pt-4 ">
         <div className="flex flex-col items-center lg:items-start justufy-center md:px-0 ">
           <div className=" w-80 h-24   ">
@@ -32,7 +32,7 @@ function HomeBody() {
             </p>
           </div>
           <div className="w-96 h-24 ">
-            <p className="hover:underline  text-center lg:text-left lg:w-3/5 lg:text-left mb-6  ">
+            <p className="hover:underline  text-center lg:text-left lg:w-3/5  mb-6  ">
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
               nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
               erat volutpat.{' '}
