@@ -148,18 +148,18 @@ const index = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-refubook-blue flex items-center justify-center">
-      <div className="h-[90vh] xl:h-[80vh] w-11/12 xl:w-4/5 py-6 px-4 bg-white rounded-6xl shadow-custom-xl relative overflow-hidden">
+   
+      <div className="min-h-screen xl:min-h-screen w-full xl:full py-6 px-4 bg-white  shadow-custom-xl relative overflow-hidden">
         <div className="hidden xl:block absolute -left-48 -top-4 z-0 w-[800px] h-[650px] rounded-[1009px] bg-[#E5FAFF]" />
 
         <div className="xl:hidden absolute -left-16 -bottom-[40%] z-0 w-[500px] h-[500px] rounded-[1009px] bg-[#E5FAFF]" />
 
-        <div className="relative z-10">
+        <div className="relative z-10 my-auto">
           <NavBar />
 
           <div
             data-testid="login-main-container"
-            className="p-10 h-[40vh] xl:w-2/5 transform translate-y-6 xl:translate-y-10 m-auto bg-white shadow-custom-xl rounded-6xl flex flex-col items-center justify-between xl:justify-around"
+            className="p-10 h-[40vh] xl:w-2/5 mt-24 transform translate-y-6 xl:translate-y-10 m-auto bg-white shadow-custom-xl rounded-6xl flex flex-col items-center justify-between xl:justify-around"
           >
             <h3 className="text-xl xl:text-2xl text-refubook-blue font-bold leading-[20px] xl:leading-[28px]">
               SIGN IN WITH
@@ -208,7 +208,7 @@ const index = () => {
           </Link>
         </div>
       </div>
-    </div>
+
   );
 };
 export default index;
