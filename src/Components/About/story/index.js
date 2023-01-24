@@ -10,7 +10,7 @@ function Story() {
         </h1>
         <div className="text-left">
           <ReadMoreReadLess>
-          {`
+            {`
           In war-torn Syria, the life of a young boy named Ahmad was turned upside down. His home was destroyed, and he was forced to flee with his family for his life. After a perilous journey, they finally reached a refugee camp in Lebanon. Life in the camp was difficult, with limited resources and little hope for the future.
 
           But Ahmad never gave up hope. He knew that he needed to keep moving forward, to find a safe place to rebuild his life. He spent his days in the camp helping his family and learning new skills, such as learning English and fixing bikes.
@@ -25,7 +25,7 @@ function Story() {
           
           Call to Action: Learn more about the Syrian refugee crisis and how you can help. Visit our website and share help to support Syrian refugee families like Ahmad's.
         `}
-        </ReadMoreReadLess>
+          </ReadMoreReadLess>
         </div>
       </div>
     </div>

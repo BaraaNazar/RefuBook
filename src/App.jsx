@@ -30,7 +30,6 @@ function App() {
         <Route path="/BlogPage" element={<BlogPage />} />
         <Route path="/singleblog" element={<SingleblogPage />} />
       </Routes>
-      
 
       <Outlet />
     </div>

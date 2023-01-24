@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import Carousel from 'react-elastic-carousel';
@@ -44,28 +43,39 @@ function Blog() {
           </div>
           <hr className="hidden md:block md:h-1 md:bg-gray-300 md:m-1 md:rounded-full" />
           <div className="text-[#4F4F4F] font-bold text-lg">Popular:</div>
-          <div>
+          <div className="hidden md:flex">
             <Carousel
               showArrows={false}
               itemsToShow={3}
               itemPadding={[0, 6]}
               outerSpacing={0}
-              className=" md:p-0 md:itemsToShow={1}"
+              className=" md:p-0"
             >
-
               {article.map((articleInfo) => (
                 <Cards articleInfo={articleInfo} />
-
+              ))}
+            </Carousel>
+          </div>
+          <div className="flex md:hidden">
+            <Carousel
+              showArrows={false}
+              itemsToShow={1}
+              itemPadding={[0, 6]}
+              outerSpacing={0}
+              className=" md:p-0"
+            >
+              {article.map((articleInfo) => (
+                <Cards articleInfo={articleInfo} />
               ))}
             </Carousel>
           </div>
 
-          <div className="blog grid grid-cols-2 m-5  gap-3 md:grid-cols-4 md:justify-center ">
-
-            {article.map((articleInfo) => (
-              <Cards articleInfo={articleInfo} />
-
-            ))}
+          <div className="grid justify-center items-center">
+            <div className="grid md:grid-cols-2 grid-cols-1 space-x-5 space-y-5 flex-wrap m-5 text-left justify-center items-center">
+              {article.map((articleInfo) => (
+                <Cards articleInfo={articleInfo} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
