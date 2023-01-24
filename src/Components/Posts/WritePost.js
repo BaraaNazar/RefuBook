@@ -69,8 +69,8 @@ const WritePost = () => {
       },
     });
 
-    // const path = `/user-profile`;
-    // navigate(path);
+    const path = `/user-profile`;
+    navigate(path);
   };
   const onCancel = (e) => {
     e.preventDefault();
