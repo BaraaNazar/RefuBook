@@ -58,7 +58,6 @@ function Footer() {
               Contact
             </NavLink>
           </li>
-    
         </ul>
       </div>
 

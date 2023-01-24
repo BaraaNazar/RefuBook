@@ -152,7 +152,7 @@ function Navbar() {
             </li>
             <li>
               <NavLink
-                to="/"
+                to="/BlogPage"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Blog
@@ -175,22 +175,22 @@ function Navbar() {
               </NavLink>
             </li>
             {!user.displayName ? (
-                <li>
-                  <NavLink
-                    to="/login"
-                    className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
-                  >
-                    Sign I  
-                  </NavLink>
-                </li>
-              ) : (
+              <li>
                 <NavLink
-                  to="/user-profile"
+                  to="/login"
                   className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
                 >
-                  {user.displayName}
+                  Sign I
                 </NavLink>
-              )}
+              </li>
+            ) : (
+              <NavLink
+                to="/user-profile"
+                className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
+              >
+                {user.displayName}
+              </NavLink>
+            )}
           </ul>
         </div>
       ) : (

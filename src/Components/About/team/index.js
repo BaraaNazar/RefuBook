@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Carousel from 'react-elastic-carousel'
+import Carousel from 'react-elastic-carousel';
 import Employee from './Employee';
 import employees from './employess';
 import './style.css';
@@ -67,27 +67,24 @@ function Team() {
                 />
               ))}
           </div>
-          <div className='w-full md:hidden flex'>
-          <Carousel showArrows={false} enableAutoPlay>
-          
-          {employees
-              .filter((item) =>
-                selectedCountry !== 'All'
-                  ? item.country === selectedCountry
-                  : true
-              )
-              .map((employee) => (
-                <Employee
-                  key={employee.id}
-                  name={employee.name}
-                  Role={employee.Role}
-                  img={employee.profilePhoto}
-                />
-              ))}
-          
-          </Carousel>
+          <div className="w-full md:hidden flex">
+            <Carousel showArrows={false} enableAutoPlay>
+              {employees
+                .filter((item) =>
+                  selectedCountry !== 'All'
+                    ? item.country === selectedCountry
+                    : true
+                )
+                .map((employee) => (
+                  <Employee
+                    key={employee.id}
+                    name={employee.name}
+                    Role={employee.Role}
+                    img={employee.profilePhoto}
+                  />
+                ))}
+            </Carousel>
           </div>
-          
         </div>
       </div>
     </div>
