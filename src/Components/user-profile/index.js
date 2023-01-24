@@ -40,25 +40,16 @@ const index = () => {
 
   const [screenWidth, setScreenWidth] = useState(window.screen.width);
   const [isEditMode, setIsEditMode] = useState(false);
-  const [slideNum, setSlideNum] = useState(0);
-  const [sliderTotalContent, setSliderTotalContent] = useState(
-    screenWidth > 1280 ? 6 : 2
-  );
 
   useEffect(() => {
     const resizeScreen = () => {
       setScreenWidth(window.screen.width);
-      setSliderTotalContent(screenWidth > 1280 ? 6 : 2);
     };
 
     window.addEventListener('resize', resizeScreen);
     resizeScreen();
     return () => window.removeEventListener('resize', resizeScreen);
   }, [window.screen]);
-
-  const toggleSlideNumber = (dotIndex) => {
-    setSlideNum(dotIndex * sliderTotalContent);
-  };
 
   const toggleEditMode = () => {
     setIsEditMode((prev) => !prev);
@@ -305,40 +296,18 @@ const index = () => {
               </div>
             </form>
           ) : (
-            <>
-              <div className="grid xl:grid-cols-3 gap-x-10 gap-y-6 my-6 xl:my-10">
-                {!user.posts
-                  ? null
-                  : user.posts.map((card) => (
-                      <Card
-                        key={card.id}
-                        data={card}
-                        profilePicture={user.profilePicture}
-                        screenWidth={screenWidth}
-                      />
-                    ))}
-              </div>
-
-              <div className="flex items-center justify-center xl:justify-start gap-x-4">
-                {!user.posts
-                  ? null
-                  : user.posts.map((i) => (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => toggleSlideNumber(i)}
-                      >
-                        <div
-                          className={`w-3 xl:w-4 h-3 xl:h-4 transform transition-all duration-300 ease-in-out ${
-                            slideNum / sliderTotalContent === i
-                              ? 'bg-refubook-blue'
-                              : 'bg-[#EAE6E6]'
-                          } rounded-full`}
-                        />
-                      </button>
-                    ))}
-              </div>
-            </>
+            <div className="grid xl:grid-cols-3 gap-x-10 gap-y-6 my-6 xl:my-10">
+              {!user.posts
+                ? null
+                : user.posts.map((card) => (
+                    <Card
+                      key={card.id}
+                      data={card}
+                      profilePicture={user.profilePicture}
+                      screenWidth={screenWidth}
+                    />
+                  ))}
+            </div>
           )}
         </div>
       </div>
