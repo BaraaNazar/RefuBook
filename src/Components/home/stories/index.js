@@ -1,36 +1,9 @@
 import { useState, useLayoutEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import './style.css';
-import manHoldABook from '../../../images/young-man-stretching-hand-toward-book-white-t-shirt-jeans-looking-happy-front-view.jpg';
-import manWork from '../../../images/building-construction-worker-site-with-architect.jpg';
 
-const LATEST_STORIES = [
-  {
-    id: 1,
-    image: manHoldABook,
-    content: {
-      category: 'Language',
-      title:
-        'How I learned Turkish quickly and what are the best places to learn.',
-    },
-    author: {
-      name: 'Ahmad Faysal',
-      status: 'Refugee in Turkey',
-    },
-  },
-  {
-    id: 2,
-    image: manWork,
-    content: {
-      category: 'Jobs',
-      title:
-        'How to find job in Lebnaon, and what are the obstacles in Lebanon.',
-    },
-    author: {
-      name: 'Rami Al-Khaldi',
-      status: 'Refugee in Lebanon',
-    },
-  },
-];
+
+
 
 const valueOnSize = (size) => {
   return size <= 500
@@ -53,35 +26,37 @@ const LatestStories = () => {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
+  const {t}=useTranslation();
+
   return (
     <div
       className="latest-story-container"
       data-testid="latest-story-container"
     >
       <div className="latest-story-top">
-        <h2 className="title">Latest Stories</h2>
+        <h2 className="title">{t("home.hero.latest-stories.title")}</h2>
 
         <p className="description">{description}</p>
       </div>
 
       <div className="latest-story-bottom">
-        {LATEST_STORIES.map((story) => (
+      {t('home.hero.latest-stories.latest-stories-content',{returnObjects:true}).map((story) => (
           <div key={story.id} className="story-container">
-            <img src={story.image} alt="Fisrt Empty" />
+            <img src={t(story.image)} alt="Fisrt Empty" />
 
             <div className="right-side">
               <div className="story-title-container">
-                <h5>{story.content.category}</h5>
+                <h5>{t(story.content.category)}</h5>
               </div>
 
-              <h3>{story.content.title}</h3>
+              <h3>{t(story.content.title)}</h3>
 
               <div className="story-author-container">
                 <div className="author-profile" />
 
                 <div className="author">
-                  <h4>{story.author.name}</h4>
-                  <p>{story.author.status}</p>
+                <h4>{t(story.author.name)}</h4>
+                <p>{t(story.author.status)}</p>
                 </div>
               </div>
             </div>

@@ -1,0 +1,170 @@
+
+{
+    "navlinks": {
+      "home": "Home",
+      "about": "About",
+      "contact": "Contact",
+      "blog": "Blog",
+      "signUp": "Sign up",
+      "signIn":"Sign in",
+      "logOut": "logout",
+      "chat":"chat",
+      "my-profile":"My Profile"
+    },
+    "home": {
+      "hero": {
+        "title": "Refubook",
+        "subtitle": "Express Freely",
+        "content": "share your own personal experiences and knowledge on how to find a job, rent a house, buy or sell things you might need, or how to join events happening in the community. ",
+        "button": "Sign Up",
+        "features-section-content":[
+          {
+            "title":"Reliability",
+            "description":"Reliability is the fuel for compounding strength of a leader. Loss of reliability results in loss of confidence in one's leadership.” relationship repair work the deeper trust grows."
+
+          },
+          {
+            "title":"Motivation",
+            "description":"Motivation is the drive to achieve your goals or needs. Motivation is important to break old habits and to develop healthy ones. Many people struggle with getting and staying motivated."
+
+          },
+          {
+            "title":"Efficiency",
+            "description":"Efficiency is the ability to produce an intended result in the way that results in the least waste of time, effort, and resources. Effectiveness is the ability to produce a better result, one that delivers more value or achieves a better outcome"
+
+          },
+          {
+            "title":"Creativity",
+            "description":"Creativity is defined as the tendency to generate or recognize ideas, alternatives, or possibilities that may be useful in solving problems, communicating with others, and entertaining ourselves and others"
+
+          }
+        ],
+        "latest-stories":{
+          "title":"Latest Stories",
+          "latest-stories-content":[
+            {
+              "id":"1",
+              "image": "./images/building-construction-worker-site-with-architect.jpg",
+              "content": {
+                "category": "Language",
+                "title":
+                  "How I learned Turkish quickly and what are the best places to learn."
+              },
+              "author": {
+                "name": "Ahmad Faysal",
+                "status": "Refugee in Turkey"
+              }
+            },
+            {
+              "id": "2",
+              "image": "./images/man-reading-book.jpg",
+              "content": {
+                "category": "Jobs",
+                "title":
+                  "How to find job in Lebnaon, and what are the obstacles in Lebanon."
+              },
+              "author": {
+                "name": "Rami Al-Khaldi",
+                "status": "Refugee in Lebanon"
+              }
+            }
+          
+            
+            
+          ]
+        },
+        "latest-stories-subtitle":{
+          "subtitle1":"{{description}}",
+          "subtitle2":"Home is behind, the world ahead and there are many paths to tread through shadows to the edge."
+
+        },
+        "testimonial":[
+          {
+          "content":" As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.",
+          "author":"Omer Ali,",
+          "from":"Anbar"},
+          {
+            "content":" Despite the challenges I have faced, I am grateful for the opportunities and support that have helped me rebuild my life and find hope for the future.",
+            "author":" Mohammed Al-ani,",
+            "from":"Musel"},
+            {
+              "content":"  As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience  within myself that I never knew existed.",
+              "author":"Belal Barkat,",
+              "from":"Halab"},
+          {
+            "content":" As a refugee, my life has been filled with uncertainty and hardship. But through it all, I have found strength and resilience within myself that I never knew existed.",
+            "author":"Alwaleed khalid,",
+            "from":"Ghaza"}
+
+        ]
+
+        ,
+        "about":{
+          "content":"This website will be able to help refugees wherever they are. Information will be separated by country and users will be able to create their own account and share their own personal experiences and knowledge on how to find a job, rent a house, buy or sell things you might need, or how to join events happening in the community. ",
+          "learn-more":"learn more"
+        },
+        "partner":{
+          "title":"Our Partners"
+        }
+
+      }
+    
+    
+    },
+    "about-page":{
+      "our-story":{
+        "title":"Our Story",
+        "content":"In war-torn Syria, the life of a young boy named Ahmad was turned upside down. His home was destroyed, and he was forced to flee with his family for his life. After a perilous journey, they finally reached a refugee camp in Lebanon. Life in the camp was difficult, with limited resources and little hope for the future.But Ahmad never gave up hope. He knew that he needed to keep moving forward, to find a safe place to rebuild his life. He spent his days in the camp helping his family and learning new skills, such as learning English and fixing bikes. And, after years of waiting, Ahmad and his family were finally granted asylum in the United States.Upon arrival, Ahmad faced new challenges, such as learning a new language and navigating a new culture. But with the help of local organizations and volunteers, he was able to enroll in school and find a job. He quickly made friends, and started to feel like he belonged.Despite all the hardships he faced, Ahmad never gave up hope. He knew that starting over in a new country would not be easy, but he was determined to make it work. And, with the help of the community, he was able to start a new chapter in his life Ahmad's story is just one of the many stories of Syrian refugees who have had to leave their homes in search of safety. They remind us of the resilience and determination of those who have been forced to flee their homes. With your help, we can continue to support Syrian refugees like Ahmad and give them the chance for a new beginning. Call to Action: Learn more about the Syrian refugee crisis and how you can help. Visit our website and share help to support Syrian refugee families like Ahmad's."
+      }
+      ,"our-team":{
+        "title":"Our Team",
+        "view-all":"View All",
+        "countries":{
+          "iraq":"Iraq",
+          "Kurdistan-Iraq":"Kurdistan-Iraq",
+          "Lebanon":"Lebnaon"
+
+        },
+        "employee":[
+          { "id": "1",
+           "name": "Baraa", 
+           "country": "Turkey",
+            "Role": "Author at Panoply Store" },
+          { "id":" 2",
+           "name": "Sakar",
+            "country": "Turkey", 
+            "Role": "Author at Panoply Store" },
+          {" id": "3",
+           "name": "Banel", 
+           "country": "USA", 
+           "Role": "Author at Panoply Store" },
+          { "id":" 4",
+          "name": "Nma",
+           "country": "Lebanon",
+            "Role": "Author at Panoply Store" },
+          { "id": "5",
+          "name": "Heyam",
+           "country": "Lebanon", 
+           "Role": "Author at Panoply Store" }
+        
+        ]
+   
+
+      },
+      "share":{
+        "title":"A New Beginning: The Story of a Syrian Boy`s Journey to Safety",
+        "content":"In war-torn Syria, the life of a young boy named Ahmad was turned  upside down. His home was destroyed, and he was forced to flee with  his family for his life. After a perilous journey, they finally reached a refugee camp in Lebanon. Life in the camp was difficult  with limited resources and little hope for the future. But Ahmad never gave up hope. He knew that he needed to keep moving forward, to find a safe place to rebuild his life. He spent his days in the camp helping his family and learning new skills, such as learning English and  fixing bikes. And, after years of waiting, Ahmad and his family were finally granted asylum in the United States. Upon arrival, Ahmad faced  new challenges, such as learning a new language and navigating a new  culture. But with the help of local organizations and volunteers, he  was able to enroll in school and find a job. He quickly made friends, and started to feel like he belonged.",
+        "signUp":"Sign up",
+        "check-profile":"Check profile"
+      },
+      "partner":{
+        "title":"Partners"
+      }
+    },
+    "log-in-page":{
+      "sign-in-with":"Sign in with ",
+      "Or":"Or",
+      "member-to-be":"Want to be a member?"
+      
+    }
+  }
