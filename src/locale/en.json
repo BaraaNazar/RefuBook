@@ -9,7 +9,19 @@
       "signIn":"Sign in",
       "logOut": "logout",
       "chat":"chat",
-      "my-profile":"My Profile"
+      "my-profile":"My Profile",
+      "my-account":"my account",
+      "post":"Post",
+      "signout":"Sign Out",
+      "our-Partners":"Our Partners"
+    },
+    "contact-page":{
+      "get-in-touch":"Get in Touch",
+      "subtitle":"Want to get in touch? We'd love to hear from you .Here how you can reach us",
+      "email":"Email",
+      "your-message":"Your message",
+      "send":"Send"
+
     },
     "home": {
       "hero": {
@@ -41,6 +53,8 @@
         ],
         "latest-stories":{
           "title":"Latest Stories",
+          "subtitle1":"Home is behind, the world ahead and there are many paths to tread.",
+          "subtitle2":"Home is behind, the world ahead and there are many paths to tread through shadows to the edge.",
           "category":"Language",
           "category-title":"How did you learn Turkish quickly and what are the best places to learn?",
           "author":"Ahmad Faysal",

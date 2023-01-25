@@ -4,13 +4,31 @@ import manHoldABook from '../../../images/young-man-stretching-hand-toward-book-
 import manWork from '../../../images/building-construction-worker-site-with-architect.jpg';
 import './style.css';
 
+function Title1(){
+  const {t}=useTranslation();
 
+  return (
+    <p>{t("home.hero.latest-stories.subtitle1")}</p>
+  )
+
+
+}
+
+function Title2(){
+  const {t}=useTranslation();
+
+  return (
+    <p>{t("home.hero.latest-stories.subtitle2")}</p>
+  )
+
+
+}
 
 
 const valueOnSize = (size) => {
   return size <= 500
-    ? 'Home is behind, the world ahead and there are many paths to tread.'
-    : 'Home is behind, the world ahead and there are many paths to tread through shadows to the edge.';
+    ? <Title1/>
+    : <Title2/>;
 };
 const LatestStories = () => {
   const [description, setDescription] = useState(
@@ -28,8 +46,9 @@ const LatestStories = () => {
     return () => window.removeEventListener('resize', updateSize);
   }, []);
 
+  
+  
   const {t}=useTranslation();
-
   return (
     <div
       className="latest-story-container"
