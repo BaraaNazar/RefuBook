@@ -22,19 +22,19 @@ function HomeBody() {
       <div className=" bodycontainer flex justify-center items-center lg:flex-row flex-col-reverse mx-auto my-10 xl:my-0 md:my-8 px-4 md:px-16    items-start md:text-center space-between w-screen m-10 px-4 pt-4 ">
         <div className="flex flex-col items-center lg:items-start justufy-center md:px-0 ">
           <div className=" w-80 h-24   ">
-            <p className="homebody  text-center lg:text-left py-8 text-blue-700 font-bold  w-full font-style: normal hover:underline font-semibold text-5xl  xl:text-6xl ">
+            <p className="homebody  text-center lg:text-left py-8 text-blue-700 font-bold  w-full font-style: normal  font-semibold text-5xl  xl:text-6xl ">
             {t('home.hero.title')}
             </p>
           </div>
 
           <div className=" w-60 h-36  ">
-            <p className=" express text-center lg:text-left  py-3 text-orange-400 font-bold  w-full font-style: normal  hover:underline text-5xl  mb-6 lg:w-2/6 leading-none  xl:text-5xl">
+            <p className=" express text-center lg:text-left  py-3 text-orange-400 font-bold  w-full font-style: normal   text-5xl  mb-6 lg:w-2/6 leading-none  xl:text-5xl">
               {' '}
               {t('home.hero.subtitle')}
             </p>
           </div>
           <div className="w-96 h-24 ">
-          <p className="hover:underline  text-center lg:text-left lg:w-3/5  mb-6  ">
+          <p className="  text-center lg:text-left lg:w-3/5  mb-6  ">
           {t('home.hero.content')}
             </p>
           </div>
@@ -43,7 +43,7 @@ function HomeBody() {
               <NavLink to="/login">
                 <button
                   type="button"
-                  className=" signUp  justify-center block   mb-3  text-white bg-sky-600 rounded-full hover:underline font-bold py-1 px-4 "
+                  className=" signUp  justify-center block   mb-3  text-white bg-sky-600 rounded-full  hover:bg-sky-700 font-bold py-1 px-4 "
                   href="/signUp"
                 >
                   {t('navlinks.signUp')}
@@ -53,7 +53,7 @@ function HomeBody() {
               <NavLink to="/user-profile">
                 <button
                   type="button"
-                  className=" signUp  justify-center block  mb-3  text-white bg-sky-600 rounded-full hover:underline font-bold py-1 px-4 "
+                  className=" signUp  justify-center block  mb-3  text-white bg-sky-600 rounded-full  hover:bg-sky-700 font-bold py-1 px-4 "
                   href="/user-profile"
                   to="/user-profile"
                 >
