@@ -41,37 +41,14 @@
         ],
         "latest-stories":{
           "title":"Latest Stories",
-          "latest-stories-content":[
-            {
-              "id":"1",
-              "image": "./images/building-construction-worker-site-with-architect.jpg",
-              "content": {
-                "category": "Language",
-                "title":
-                  "How I learned Turkish quickly and what are the best places to learn."
-              },
-              "author": {
-                "name": "Ahmad Faysal",
-                "status": "Refugee in Turkey"
-              }
-            },
-            {
-              "id": "2",
-              "image": "./images/man-reading-book.jpg",
-              "content": {
-                "category": "Jobs",
-                "title":
-                  "How to find job in Lebnaon, and what are the obstacles in Lebanon."
-              },
-              "author": {
-                "name": "Rami Al-Khaldi",
-                "status": "Refugee in Lebanon"
-              }
-            }
-          
-            
-            
-          ]
+          "category":"Language",
+          "category-title":"How did you learn Turkish quickly and what are the best places to learn?",
+          "author":"Ahmad Faysal",
+          "status":"Refugee in Turkey",
+          "category1":"Jobs",
+          "category-title1":"How to find job in Lebnaon, and what are the obstacles in Lebanon.",
+          "author1":"Rami Al-Khaldi",
+          "status1":"Refugee in Lebanon"
         },
         "latest-stories-subtitle":{
           "subtitle1":"{{description}}",

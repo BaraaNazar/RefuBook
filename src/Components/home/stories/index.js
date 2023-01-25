@@ -1,5 +1,7 @@
 import { useState, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import manHoldABook from '../../../images/young-man-stretching-hand-toward-book-white-t-shirt-jeans-looking-happy-front-view.jpg';
+import manWork from '../../../images/building-construction-worker-site-with-architect.jpg';
 import './style.css';
 
 
@@ -40,28 +42,49 @@ const LatestStories = () => {
       </div>
 
       <div className="latest-story-bottom">
-      {t('home.hero.latest-stories.latest-stories-content',{returnObjects:true}).map((story) => (
-          <div key={story.id} className="story-container">
-            <img src={t(story.image)} alt="Fisrt Empty" />
+    
+          <div  className="story-container">
+            <img src={manHoldABook} alt="man hold book" />
 
             <div className="right-side">
               <div className="story-title-container">
-                <h5>{t(story.content.category)}</h5>
+                <h5>{t('home.hero.latest-stories.category')}</h5>
               </div>
 
-              <h3>{t(story.content.title)}</h3>
+              <h3>{t('home.hero.latest-stories.category-title')}</h3>
 
               <div className="story-author-container">
                 <div className="author-profile" />
 
                 <div className="author">
-                <h4>{t(story.author.name)}</h4>
-                <p>{t(story.author.status)}</p>
+                <h4>{t('home.hero.latest-stories.author')}</h4>
+                <p>{t('home.hero.latest-stories.status')}</p>
                 </div>
               </div>
             </div>
           </div>
-        ))}
+          <div  className="story-container">
+            <img src={manWork} alt="manWork" />
+
+            <div className="right-side">
+              <div className="story-title-container">
+                <h5>{t('home.hero.latest-stories.category1')}</h5>
+              </div>
+
+              <h3>{t('home.hero.latest-stories.category-title1')}</h3>
+
+              <div className="story-author-container">
+                <div className="author-profile" />
+
+                <div className="author">
+                <h4>{t('home.hero.latest-stories.author1')}</h4>
+                <p>{t('home.hero.latest-stories.status1')}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+       
       </div>
     </div>
   );

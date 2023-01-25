@@ -39,38 +39,15 @@
           }
         ],
         "latest-stories":{
-          "title":"أحدث القصص",
-          "latest-stories-content":[
-            {
-              "id":"1",
-              "image": "building-construction-worker-site-with-architect.jpg",
-              "content": {
-                "category": "اللغة",
-                "title":
-                  "كيف اتعلم التركية بسرعة وما هي أفضل الأماكن للتعلم؟"
-              },
-              "author": {
-                "name": "احمد فيصل",
-                "status": "لاجئ في تركيا"
-              }
-            },
-            {
-              "id": "2",
-              "image": "man-reading-book.jpg",
-              "content": {
-                "category": "وظائف",
-                "title":
-                  "كيف احصل على عمل في لبنان وما هي المعوقات في لبنان؟"
-              },
-              "author": {
-                "name": "رامي الخالدي",
-                "status": "لاجئ في لبنان"
-              }
-            }
-          
-            
-            
-          ]
+          "title":"احدث القصص",
+          "category":"اللغة",
+          "category-title":"كيف تعلمت التركية بسرعة وما هي أفضل الأماكن للتعلم.",
+          "author":"احمد فيصل",
+          "status":"لاجئ في تركية",
+          "category1":"وظائف",
+          "category-title1":"كيف احصل على عمل في لبنان وما هي المعوقات في لبنان.",
+          "author1":"رامي الخالدي",
+          "status1":"لاجئ في لبنان"
         },
         "latest-stories-subtitle":{
           "subtitle1":"Home is behind, the world ahead and there are many paths to tread.",
