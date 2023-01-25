@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 import { useTranslation  } from 'react-i18next';
 import Carousel from 'react-elastic-carousel'
-=======
-import Carousel from 'react-elastic-carousel';
->>>>>>> origin/main
 import Employee from './Employee';
 import employees from './employess';
 import './style.css';
@@ -73,16 +69,11 @@ function Team() {
                 />
               ))}
           </div>
-<<<<<<< HEAD
-          <div className='w-full md:hidden flex'>
-          <Carousel showArrows={false} enableAutoPlay>
-          
-          {employees
-=======
+
           <div className="w-full md:hidden flex">
             <Carousel showArrows={false} enableAutoPlay>
               {employees
->>>>>>> origin/main
+
                 .filter((item) =>
                   selectedCountry !== 'All'
                     ? item.country === selectedCountry
@@ -96,12 +87,9 @@ function Team() {
                     img={employee.profilePhoto}
                   />
                 ))}
-<<<<<<< HEAD
-          
-          </Carousel>
-=======
+
             </Carousel>
->>>>>>> origin/main
+
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 import img from '../../../images/Baraa-Nazar.jpg';
 import HeyamMsri from '../../../images/heyamMsri.jpg';
+import Banel from '../../../images/banel_mikhael.jpg'
 
 const employees = [
   {
@@ -22,8 +23,7 @@ const employees = [
     name: 'Banel',
     country: 'Kurdistan-Iraq',
     Role: 'Front-end developer',
-    profilePhoto:
-      'https://ca.slack-edge.com/T041DGW0Q64-U040MJCCP70-fd4dbc6bda0c-512',
+    profilePhoto:Banel,
   },
   {
     id: 4,
