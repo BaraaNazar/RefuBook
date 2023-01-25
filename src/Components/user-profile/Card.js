@@ -17,6 +17,7 @@ const Card = ({ data, screenWidth, profilePicture }) => {
           width={screenWidth > 1280 ? 45 : 30}
           height={screenWidth > 1280 ? 45 : 30}
           src={profilePicture}
+          className="rounded-[50%]"
           alt="avatar"
         />
 

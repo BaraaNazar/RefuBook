@@ -10,9 +10,9 @@ import Navbar from '../../Containers/Navbar';
 
 function Chat() {
   return (
-    <div >
+    <div>
       <Navbar />
-      <div className='md:m-5'>
+      <div className="md:m-5">
         <div className="flex h-fit text-gray-800 justify-between">
           <div className="md:flex md:flex-row md:h-screen md:overflow-x-hidden hidden">
             <div className="flex flex-col  w-64 bg-white flex-shrink-0">

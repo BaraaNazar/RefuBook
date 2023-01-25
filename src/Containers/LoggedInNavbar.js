@@ -23,7 +23,7 @@ function LoggedInNavbar() {
       <div className="flex flex-wrap items-center justify-between mx-auto">
         <div className="flex justify-between items-center w-2/3 xl:w-auto">
           <NavLink to="/" className="hidden xl:flex items-center">
-            <img src={Logo} className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+            <img src={Logo} className="h-6 mr-3 sm:h-9 " alt="Flowbite Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap">
               RefuBook
             </span>
@@ -64,6 +64,7 @@ function LoggedInNavbar() {
               width={130}
               height={130}
               src={user.profilePicture}
+              className=" rounded-[50%]"
               alt="Avatar"
             />
 

@@ -73,7 +73,7 @@ function Contacts() {
         <div className=" md:pt-12">
           <img
             src={contactImage}
-            className="mx-auto my-auto w-[300px] h-[350px] sm:w-[300px] sm:h-[400px] md:w-[500px] md:h-[475px] lg:w-[550px] lg:h-[450px]"
+            className="mx-auto my-auto w-[300px] h-[220px] sm:w-[300px] sm:h-[400px] md:w-[500px] md:h-[475px] lg:w-[550px] lg:h-[450px]"
             alt=""
           />
         </div>

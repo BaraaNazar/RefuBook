@@ -33,7 +33,7 @@ function MobileComponent() {
   return (
     <div className="sm:flex sm:flex-col text-black my-auto mx-auto ">
       <div className="mx-auto">
-        <img className="` mx-auto h-auto w-auto " src={logo} alt="" />
+        <img className="` mx-auto h-[250px] pl-4 w-auto " src={logo} alt="" />
       </div>
       <div className="h-50  xl:h-80 sm:w-[100%] 2xl:h-96   ">
         <Carousel showArrows={false} itemPosition={consts.END} itemsToShow={1}>
@@ -44,7 +44,7 @@ function MobileComponent() {
                   <MdStars className="text-5xl text-gray-500" />
                   <h1 className="text-gray-500">{t(feature.title)}</h1>
                 </header>
-                <p className=" text-center mx-auto w-[50%]">
+                <p className=" text-center mx-auto w-[80%] md:w-[50%]">
                 {t(feature.description)}
                 </p>
               </div>
@@ -74,18 +74,7 @@ function DesktopComponent() {
             </div>
           );
         })}
-        <div className="my-auto mx-auto xl:mr-48  bg-[#E5FAFF] ">
-          <Carousel
-            showArrows={false}
-            itemPosition={consts.END}
-            itemsToShow={1}
-          >
-            <div> </div>
-            <div> </div>
-            <div> </div>
-            <div> </div>
-          </Carousel>
-        </div>
+   
       </div>
       <div className=" sm:pl-[50px] mx-auto md:pl-[100px] lg:pl-[200px] sm:pt-[20px] pl-[75px]">
         <img className="h-[350px] w-[350px] mx-auto " src={logo} alt="" />

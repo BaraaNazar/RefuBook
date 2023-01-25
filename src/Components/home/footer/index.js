@@ -71,7 +71,6 @@ function Footer() {
               {t('navlinks.contact')}
             </NavLink>
           </li>
-    
         </ul>
       </div>
 
