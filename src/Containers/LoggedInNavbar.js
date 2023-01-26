@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FiMenu } from 'react-icons/fi';
 import { useSelector } from 'react-redux';
 import { HiArrowNarrowLeft } from 'react-icons/hi';
@@ -17,6 +18,7 @@ function LoggedInNavbar() {
   const logOut = () => {
     signOut(auth);
   };
+  const {t}=useTranslation();
 
   return (
     <nav className="text-refubook-blue px-2 sm:px-4 py-2.5 rounded mx-3">
@@ -25,7 +27,7 @@ function LoggedInNavbar() {
           <NavLink to="/" className="hidden xl:flex items-center">
             <img src={Logo} className="h-6 mr-3 sm:h-9 " alt="Flowbite Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap">
-              RefuBook
+            {t('home.hero.title')}
             </span>
           </NavLink>
 
@@ -34,7 +36,7 @@ function LoggedInNavbar() {
           </button>
 
           <h3 className="font-bold text-lg leading-5 text-refubook-blue xl:hidden">
-            My Account
+          {t('navlinks.my-account')}
           </h3>
         </div>
 
@@ -89,7 +91,7 @@ function LoggedInNavbar() {
                   `
               }
             >
-              Home
+                {t('navlinks.home')}
             </NavLink>
 
             <NavLink
@@ -100,8 +102,7 @@ function LoggedInNavbar() {
                   ${isActive ? 'text-refubook-blue' : 'text-[#BDBDBD]'} 
                   `
               }
-            >
-              Post
+            >{t('navlinks.post')}
             </NavLink>
 
             <NavLink
@@ -113,7 +114,7 @@ function LoggedInNavbar() {
                   `
               }
             >
-              My Account
+            {t('navlinks.my-account')}
             </NavLink>
 
             <NavLink
@@ -121,7 +122,7 @@ function LoggedInNavbar() {
               className="text-[#BDBDBD] text-xl xl:text-lg font-bold py-1 px-4 rounded-full order-4"
               onClick={logOut}
             >
-              Sign out
+             {t('navlinks.signout')}
             </NavLink>
           </ul>
         </div>

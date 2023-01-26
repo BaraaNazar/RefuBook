@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '../Firebase/firebase';
@@ -7,6 +8,7 @@ import Logo from '../images/RefuBook-Logo.png';
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
   const [user, setUser] = useState({});
+  const {t}=useTranslation();
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -23,7 +25,7 @@ function Navbar() {
           <NavLink to="/" className="flex items-center">
             <img src={Logo} className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
             <span className="self-center text-xl font-semibold whitespace-nowrap">
-              RefuBook
+            {t('home.hero.title')}
             </span>
           </NavLink>
         </div>
@@ -59,7 +61,7 @@ function Navbar() {
                   className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                   aria-current="page"
                 >
-                  Home
+                    {t('navlinks.home')}
                 </NavLink>
               </li>
               <li>
@@ -67,7 +69,7 @@ function Navbar() {
                   to="/About"
                   className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
-                  About
+                 {t('navlinks.about')}
                 </NavLink>
               </li>
               <li>
@@ -75,7 +77,7 @@ function Navbar() {
                   to="/BlogPage"
                   className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
-                  Blog
+                   {t('navlinks.blog')}
                 </NavLink>
               </li>
               <li>
@@ -83,7 +85,7 @@ function Navbar() {
                   to="/Contact"
                   className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
                 >
-                  Contact
+                  {t('navlinks.contact')}
                 </NavLink>
               </li>
               <li>
@@ -115,7 +117,7 @@ function Navbar() {
                     to="/login"
                     className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
                   >
-                    Sign In
+                    {t('navlinks.signUp')}
                   </NavLink>
                 </li>
               ) : (
@@ -139,7 +141,7 @@ function Navbar() {
                 className="hover:underline block py-2 pl-3 pr-4 text-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
                 aria-current="page"
               >
-                Home
+                {t('navlinks.home')}
               </NavLink>
             </li>
             <li>
@@ -147,7 +149,7 @@ function Navbar() {
                 to="/about"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                About
+                {t('navlinks.about')}
               </NavLink>
             </li>
             <li>
@@ -155,7 +157,7 @@ function Navbar() {
                 to="/BlogPage"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                Blog
+                {t('navlinks.blog')}
               </NavLink>
             </li>
             <li>
@@ -163,7 +165,7 @@ function Navbar() {
                 to="/Contact"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                Contact
+                 {t('navlinks.contact')}
               </NavLink>
             </li>
             <li>
@@ -171,7 +173,7 @@ function Navbar() {
                 to="/ChatsAll"
                 className="hover:underline block py-2 pl-3 pr-4 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 text-refubook-bluemd:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
-                Chat
+                 {t('navlinks.chat')}
               </NavLink>
             </li>
             {!user.displayName ? (
@@ -180,7 +182,7 @@ function Navbar() {
                   to="/login"
                   className="bg-sky-600 hover:bg-sky-400 text-white font-bold py-1 px-4 rounded-full"
                 >
-                  Sign I
+                  {t('navlinks.signUp')}
                 </NavLink>
               </li>
             ) : (
@@ -199,4 +201,5 @@ function Navbar() {
     </nav>
   );
 }
+
 export default Navbar;

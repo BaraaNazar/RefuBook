@@ -1,6 +1,7 @@
 import { ImFacebook, ImTwitter } from 'react-icons/im';
 import { FaInstagram } from 'react-icons/fa';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { addDoc, collection } from 'firebase/firestore';
 import db from '../../Firebase/firebase';
 import NavBar from '../../Containers/Navbar';
@@ -22,6 +23,7 @@ function Contacts() {
 
     addingcontact();
   };
+  const {t}=useTranslation();
 
   return (
     // <div className="h-full w-full bg-[#70CDD6] flex items-center justify-center">
@@ -31,15 +33,14 @@ function Contacts() {
       <div className="relative z-10 flex flex-col-reverse md:flex-row md:justify-center md:gap-10">
         <div className="mx-auto w-full md:w-[50%] relative z-10">
           <h1 className=" sm:text-left text-center sm:mx-auto md:pt-16  font-bold text-3xl sm:text-5xl  text-[#4699C2]">
-            Get in Touch
+          {t("contact-page.get-in-touch")}
           </h1>
           <p className=" md:pt-5 text-[#8B8F9C] text-center mx-5 sm:mx-2 md:mx-1 sm:text-start md:w-[60%]">
-            But Brooke Chaffin and Catherine Connors are looking to change that
-            with the introduction.
+          {t("contact-page.subtitle")}
           </p>
           <form onSubmit={saveDoc} className="flex flex-col">
             <p className="md:text-[10px] text-[#8B8F9C]  md:pt-3 mx-5 sm:mx-2 md:mx-1">
-              Email
+            {t("contact-page.email")}
             </p>
             <input
               value={email}
@@ -61,7 +62,7 @@ function Contacts() {
               type="submit"
               className="bg-[#4699C2] mx-auto rounded-[1009px] mt-2 md:ml-1 md:mt-2 text-white w-[125px] h-[40px]"
             >
-              Send
+              {t("contact-page.send")}
             </button>
           </form>
           <div className="md:flex flex mt-2 sm:mt-4 sm:ml-3 gap-x-2 sm:mx-auto justify-center md:justify-start">

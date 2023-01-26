@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import Carousel from 'react-elastic-carousel';
 
 function OurPartners() {
+  const {t}=useTranslation();
   return (
     <div className="flex flex-col justify-center items-center space-y-16 md:p-16 p-4">
-      <h1 className="text-3xl font-bold text-blue-900">Partners</h1>
+      <h1 className="text-3xl font-bold text-blue-900">{t("about-page.partner.title")}</h1>
       <Carousel showArrows={false} itemsToShow={2} enableAutoPlay>
         <div>
           <img

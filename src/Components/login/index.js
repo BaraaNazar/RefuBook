@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaGoogle, FaFacebookF } from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -146,7 +147,7 @@ const index = () => {
     const path = `/user-profile`;
     navigate(path);
   };
-
+  const {t}=useTranslation();
   return (
    
       <div className="min-h-screen xl:min-h-screen w-full xl:full py-6 px-4 bg-white  shadow-custom-xl relative overflow-hidden">
@@ -162,7 +163,7 @@ const index = () => {
             className="p-10 h-[40vh] xl:w-2/5 mt-24 transform translate-y-6 xl:translate-y-10 m-auto bg-white shadow-custom-xl rounded-6xl flex flex-col items-center justify-between xl:justify-around"
           >
             <h3 className="text-xl xl:text-2xl text-refubook-blue font-bold leading-[20px] xl:leading-[28px]">
-              SIGN IN WITH
+            {t("log-in-page.sign-in-with")}
             </h3>
 
             <div className="w-full grid gap-1 xl:gap-0 xl:flex xl:justify-between px-6 xl:p-0">
@@ -174,7 +175,7 @@ const index = () => {
                 <FaGoogle color="white" className="text-2xl xl:text-3xl" />
               </button>
               <h5 className="text-xl font-bold text-refubook-blue xl:w-1/5 flex items-center justify-center">
-                OR
+              {t("log-in-page.Or")}
               </h5>
               <button
                 className="bg-[#2F80ED] xl:w-2/5 h-12 rounded-6xl flex items-center justify-center"
@@ -186,10 +187,11 @@ const index = () => {
             </div>
 
             <h5 className="text-[#70CDD6] hidden xl:block">
-              Want to be a member?{' '}
+            {t("log-in-page.member-to-be")}{' '}
               <Link to="/signup">
                 <button className="text-[#70CDD6] font-bold" type="button">
-                  Sign up
+               
+                {t("navlinks.signUp")}
                 </button>
               </Link>
             </h5>
@@ -203,7 +205,7 @@ const index = () => {
               className="mt-2 text-white bg-refubook-blue px-6 py-0.5 rounded-xl font-bold"
               type="button"
             >
-              Sign up
+              {t("navlinks.signUp")}
             </button>
           </Link>
         </div>
