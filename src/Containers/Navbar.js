@@ -58,7 +58,7 @@ function Navbar() {
               <li>
                 <NavLink
                   to="/"
-                  className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+                  className="text-base font-normal hover:underline block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-2 dark:text-white"
                   aria-current="page"
                 >
                     {t('navlinks.home')}
