@@ -33,7 +33,7 @@ function HomeBody() {
               {t('home.hero.subtitle')}
             </p>
           </div>
-          <div className="w-96 h-24 ">
+          <div className="w-96 h-24 p-4 md:p-0">
           <p className="  text-center lg:text-left lg:w-3/5  mb-6  ">
           {t('home.hero.content')}
             </p>
