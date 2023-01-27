@@ -25,8 +25,10 @@ function Chat() {
           <div className="flex flex-col flex-auto h-full p-6 space-y-2">
             <div className="md:h-1/2 ">
               <div className="flex flex-col flex-auto flex-shrink-0 rounded-2xl bg-gray-100 md:h-96 md:w-full h-[85vh] w-[90vw] p-2">
-                <div className="overflow-y-auto">
-                  <Messages />
+                <div className="overflow-y-auto flex-col-reverse">
+                  <div className='flex flex-col'>
+                    <Messages />
+                  </div>
                 </div>
                 <div>
                   <Input autofocus />

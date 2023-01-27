@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { onAuthStateChanged } from 'firebase/auth';
 import { collection, onSnapshot } from 'firebase/firestore';
 import db, { auth } from '../../Firebase/firebase';
@@ -15,18 +15,27 @@ function Messages() {
 
   useEffect(() => {
     const unsubscribe = onSnapshot(collection(db, `messages`), (snapshot) => {
-      setMessages(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setMessages(
+        snapshot.docs
+        .map((doc) => ({ ...doc.data(), id: doc.id }))
+        .sort((a, b) => a.timestamp - b.timestamp)
+      );
     });
 
     return unsubscribe;
   }, []);
 
+  const lastRef = useRef()
+
+  useEffect(() => {
+    if (!lastRef.current) return
+
+    lastRef.current.scrollIntoView()
+  }, [messages])
+
   return (
-    <div>
-      <div>
-        {messages &&
+    <>        {messages &&
           messages
-            .sort((a, b) => a.timestamp - b.timestamp)
             .map((message) => {
               return (
                 <Message
@@ -38,8 +47,9 @@ function Messages() {
                 />
               );
             })}
-      </div>
-    </div>
+            <div ref={lastRef} />
+    </>
+
   );
 }
 export default Messages;
