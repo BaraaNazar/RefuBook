@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { addDoc, serverTimestamp, collection } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import db, { auth } from '../../Firebase/firebase';
 
 function Input() {
@@ -11,7 +11,7 @@ function Input() {
       text: input,
       uid,
       photoURL,
-      timestamp: serverTimestamp(),
+      timestamp: new Date(),
     });
     setInput('');
   }
