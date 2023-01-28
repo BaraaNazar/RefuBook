@@ -15,9 +15,7 @@ function BlogsPage() {
     }
     fetchingData();
 
-    console.log(content);
   }, []);
-  console.log(content);
   return (
     <div>
       <div>
