@@ -31,15 +31,10 @@ const index = () => {
         const userIDD = docChange.doc.id;
         const userEmail = docChange.doc.data().user.email;
         const userObj = { ...docChange.doc.data(), userIDD, userEmail };
-        // console.log(docChange.doc.data().user.email)
         setUserRef((prevUSerRef) => [...prevUSerRef, userObj]);
       });
     });
   }, []);
-
-  // eslint-disable-next-line
-
-  // console.log(userRef);
 
   const signUpWithGoogle = async (e) => {
     e.preventDefault();
@@ -68,10 +63,7 @@ const index = () => {
         )
       ) {
         // eslint-disable-next-line
-        console.log('signed in successfully ');
       } else {
-        // eslint-disable-next-line
-        console.log('signed Up successfully');
         addDoc(collection(db, 'Users'), {
           user: {
             userId: userAuth.user.uid,
@@ -121,10 +113,8 @@ const index = () => {
         )
       ) {
         // eslint-disable-next-line
-        console.log('already signed Up');
       } else {
         // eslint-disable-next-line
-        console.log('signed Up successfully');
         addDoc(collection(db, 'Users'), {
           user: {
             userId: userAuth.user.uid,

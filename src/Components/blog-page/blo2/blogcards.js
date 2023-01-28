@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-function Cards({ articleInfo }) {
+function Cards({ article }) {
   const navigate = useNavigate();
   const handleClick = async () => {
     await navigate('/BlogPage/singleblog');
@@ -16,23 +16,26 @@ function Cards({ articleInfo }) {
       className=" max-w-lg mx-auto"
     >
       <div className="bg-white shadow-md border border-gray-200 rounded-lg max-w-sm mb-1">
-        <img src={articleInfo.image} alt="blog" className="rounded-t-lg" />
+        <img src={article.urlToImage} alt="blog" className="rounded-t-lg" />
       </div>
       <div>
         <div className="text-gray-900 font-bold text-2xl tracking-tight mb-2">
-          {articleInfo.title}
+          {article.title}
         </div>
         <div className="font-normal text-gray-700 mb-3">
-          {articleInfo.body1}
+          {article.content}
         </div>
         <div className="flex  my-3">
+          <div className='w-10 h-10'>
           <img
-            src={articleInfo.author.avatar}
+            src="https://play-lh.googleusercontent.com/PE5ARR9hbj1mPknYwCEcdbZTT8R99574PjKUuDYOsH3qaXwPLds4yZCpCcnjJrCS2Q=w240-h480-rw"
             alt="brokenImg"
-            className="w-10 h-10 rounded-full"
+            className="w-fit rounded-full"
           />
+          </div>
+         
           <div className="ml-4 mt-1 text-[#006EFF] text-base font-semibold ">
-            {articleInfo.author.name}
+            {article.author}
           </div>
         </div>
       </div>

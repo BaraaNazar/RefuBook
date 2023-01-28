@@ -1,28 +1,24 @@
-import React, { useEffect } from 'react';
-import { collection, getDocs } from 'firebase/firestore';
+import React, { useEffect,useState } from 'react';
 import Carousel from 'react-elastic-carousel';
-import { useDispatch, useSelector } from 'react-redux';
 import NavBar from '../../../Containers/Navbar';
 import Cards from './blogcards';
-import db from '../../../Firebase/firebase';
-import { signedIn } from '../../../Features/signedInUserSlice';
 
 function Blog() {
-  const dispatch = useDispatch();
-  const { article } = useSelector((state) => state.signedin);
-
-  // const [content, setContent] = useState([])
+  const [articles, setArticles] = useState([]);
   useEffect(() => {
-    async function fetchingData() {
-      const querySnapshot = await getDocs(collection(db, 'Posts'));
-      querySnapshot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        // setContent(doc.data().articleInfo);
-        dispatch(signedIn(doc.data().articleInfo));
-      });
-    }
-    fetchingData();
+    fetch('https://newsapi.org/v2/everything?domains=wsj.com&apiKey=e1e7a4c8056d4b4eac7ca7cb22220b2b')
+      .then((response) => response.json())
+      .then((data) => setArticles(data.articles));
   }, []);
+//   function filterLastWeek(items) {
+//     const lastWeek = new Date();
+//     lastWeek.setDate(lastWeek.getDate() - 7);
+//     const filteredItems = items.filter((item)=> {
+//       const itemDate = new Date(item.publishedAt);
+//         return itemDate >= lastWeek;
+//     });
+//     return filteredItems;
+// }
 
   return (
     <div>
@@ -51,8 +47,9 @@ function Blog() {
               outerSpacing={0}
               className=" md:p-0"
             >
-              {article.map((articleInfo) => (
-                <Cards articleInfo={articleInfo} />
+              {articles.slice(0, 6)
+              .map((article) => (
+                <Cards article={article} />
               ))}
             </Carousel>
           </div>
@@ -64,16 +61,16 @@ function Blog() {
               outerSpacing={0}
               className=" md:p-0"
             >
-              {article.map((articleInfo) => (
-                <Cards articleInfo={articleInfo} />
+              {articles.slice(0, 6).map((article) => (
+                <Cards article={article} />
               ))}
             </Carousel>
           </div>
 
           <div className="grid justify-center items-center">
             <div className="grid md:grid-cols-2 grid-cols-1 space-x-5 space-y-5 flex-wrap m-5 text-left justify-center items-center">
-              {article.map((articleInfo) => (
-                <Cards articleInfo={articleInfo} />
+              {articles.map((article) => (
+                <Cards article={article} />
               ))}
             </div>
           </div>
